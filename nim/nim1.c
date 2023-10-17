@@ -38,6 +38,6 @@ int plateau_defragmenter(int plateau[], int nb_colonnes){
             count++;
         }
     }
-    return count;
+    return nb_colonnes - count;
 }
 

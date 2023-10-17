@@ -3,6 +3,7 @@
 #include <stdlib.h>
 //#include "nim.h"
 #define PLATEAU_MAX_PIECES 35
+#define PLATEAU_MAX_COLONNES 20	
 
 int lire_entier(int min, int max){
 
@@ -42,6 +43,6 @@ void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int * choix_co
 {
     int i;
 
-    * choix_colonne = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);
-    
+    * choix_colonne = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_COLONNES + 1);
+    * choix_nb_pieces = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);
 }
