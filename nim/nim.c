@@ -16,13 +16,12 @@ int lire_entier(int min, int max){
     return i;
 }
 
-int plateau_init(int plateau[], int nb_colonnes)
+void plateau_init(int plateau[], int nb_colonnes)
 {
-    int number = (random() / ((double) RAND_MAX + 1)) * N;
     int i;
 
     for (i = 0; i < nb_colonnes; i++)
     {
-        plateau[i] = number;
-        
+        plateau[i] = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);
+    }
 }
