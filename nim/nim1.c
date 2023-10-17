@@ -1,5 +1,7 @@
 #include "nim.h"
 
+int main(void){}
+
 int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces){
 
     //bool truefalse = FALSE;
@@ -9,6 +11,8 @@ int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces){
         return TRUE;
     }
     else{
-        return FALSE
+        return FALSE;
     }
 }
+
+
