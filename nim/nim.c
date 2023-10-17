@@ -15,3 +15,5 @@ int lire_entier(int min, int max){
     }
     return i;
 }
+
+int plateau_init()
