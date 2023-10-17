@@ -30,7 +30,11 @@ void plateau_init(int plateau[], int nb_colonnes)
 void plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_supprimer)
 {
     int i;
-    for (i = col_a_supprimer; i < nb_colonnes; i++)
-    {
 
+    for (i = col_a_supprimer; i < nb_colonnes - 1; i++)
+    {
+        plateau[i] = plateau[i + 1];
+        plateau[i + 1] = 0;
+    }
 }
+
