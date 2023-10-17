@@ -1,8 +1,10 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-#include "nim.h"
+//#include "nim.h"
+
 #define PLATEAU_MAX_PIECES 35
+#define PLATEAU_MIN_COLONNES 2
 #define PLATEAU_MAX_COLONNES 20	
 
 int lire_entier(int min, int max){
