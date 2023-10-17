@@ -43,4 +43,5 @@ void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int * choix_co
     int i;
 
     * choix_colonne = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);
+    
 }
