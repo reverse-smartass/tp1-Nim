@@ -1,24 +1,25 @@
 /*==========================================================*/
-// Pour et par l'équipe  du DEG
+// Pour et par l'ï¿½quipe  du DEG
 /*==========================================================*/
 
 #include "m_distributions.h"
 
+
 /*==========================================================*/
 
-/* implémentation des fonctions  pour nos étudiants */
+/* implï¿½mentation des fonctions  pour nos ï¿½tudiants */
 /*==========================================================*/
-// STRATÉGIE 
+// STRATï¿½GIE 
 // appel direct au srand de stdlib
 void md_srand(unsigned int s){
 	srand(s); 
-	// obligatoire pour que le générateur de stdlib active le germe
+	// obligatoire pour que le gï¿½nï¿½rateur de stdlib active le germe
 	rand();
 }
 
 /*==========================================================*/
-// STRATÉGIE 
-// obtenir l'horloge interne et appel de la précédente
+// STRATï¿½GIE 
+// obtenir l'horloge interne et appel de la prï¿½cï¿½dente
 unsigned int md_srand_interne(void){
 	unsigned int w ;
 	w = (unsigned)time(NULL);
@@ -27,7 +28,7 @@ unsigned int md_srand_interne(void){
 }
 
 /*==========================================================*/
-// STRATÉGIE 
+// STRATï¿½GIE 
 // un exemple parfait d'usage de l'aide classique
 // cet exemple est partout
 double md_rand(void){
@@ -35,45 +36,45 @@ double md_rand(void){
 }
 
 /*==========================================================*/
-// STRATÉGIE 
-// additioner à une borne une part del'écart(signé) entre les paramètres
+// STRATï¿½GIE 
+// additioner ï¿½ une borne une part del'ï¿½cart(signï¿½) entre les paramï¿½tres
 double md_randf(double b1, double b2){
 	return b1 + (md_rand()*(b2 - b1));
 }
 
 /*==========================================================*/
-// STRATÉGIE 
-// choisir un réel aléatoire entre 0 et borne-1
+// STRATï¿½GIE 
+// choisir un rï¿½el alï¿½atoire entre 0 et borne-1
 // on lui ajoute 1
 int md_randi(int borne){
 	borne = abs(borne);
-	// j'utilise l'opérateur ? : pour résoudre borne == 0
+	// j'utilise l'opï¿½rateur ? : pour rï¿½soudre borne == 0
 	return borne == 0 ? 0: (int)(1 + md_rand()* borne);
 }
 
 /*==========================================================*/
 
 int md_randint(int b1, int b2) {
-	// ajouter 1 à la distance entre les bornes
-	// c'est pour laisser la même chance à la borne supérieure
+	// ajouter 1 ï¿½ la distance entre les bornes
+	// c'est pour laisser la mï¿½me chance ï¿½ la borne supï¿½rieure
 	double distance_plus = 1.0 + abs(b2 - b1);
 	// on trouve la borne minimum
 	int mini = (b1 < b2) ? b1 : b2;
 	int ajout;
-	// on va  ajouter au minimum une part aléatoire de cette distance_plus
+	// on va  ajouter au minimum une part alï¿½atoire de cette distance_plus
 	ajout = (int)(md_rand() * distance_plus);
 
 	return  mini + ajout;
 }
 
 /*==========================================================*/
-// STRATÉGIE 
+// STRATï¿½GIE 
 /* 
-    obtenu de la Marsaglia’s polar method 
-    telle que décrite sur wiki
+    obtenu de la Marsagliaï¿½s polar method 
+    telle que dï¿½crite sur wiki
 */
 double md_randZ(void) {
-    // un calcul  assure la génération de deux valeurs
+    // un calcul  assure la gï¿½nï¿½ration de deux valeurs
 	static int test_regener = 1;
 	static double v1;
 	static double v2;
@@ -81,22 +82,22 @@ double md_randZ(void) {
 	static double discriminant;
 	double sortie;
 
-    // recalcul nécessaire à tous les 2 usages
+    // recalcul nï¿½cessaire ï¿½ tous les 2 usages
 	if (test_regener) {
         //boucle de controle
 		do {
 			v1 = md_randf(-1, 1);
 			v2 = md_randf(-1, 1);
-            // calcul de la valeur controlée
+            // calcul de la valeur controlï¿½e
 			w = v1*v1 + v2*v2;
 
 		} while (w >= 1); // tant que le piont n'est pas dans le cercle de rayon 1
 
 		discriminant = sqrt(-2 * log(w) / w);
-		sortie = v1*discriminant; // premiere valeur calculée 
+		sortie = v1*discriminant; // premiere valeur calculï¿½e 
 	}
 	else {
-		sortie = v2*discriminant; // seconde valeur calculée 
+		sortie = v2*discriminant; // seconde valeur calculï¿½e 
 	}
 
     // passage du test aux valeurs 1,0,1,0,1,0.... successivement
@@ -106,27 +107,27 @@ double md_randZ(void) {
 
 
 /*==========================================================*/
-// STRATÉGIE 
-// obtenue d'une simple transformation linéaire de la normale Z
-// consultez au besoin un cours très élémentaire de stats
+// STRATï¿½GIE 
+// obtenue d'une simple transformation linï¿½aire de la normale Z
+// consultez au besoin un cours trï¿½s ï¿½lï¿½mentaire de stats
 double md_randnormal(double mu, double sigma){
 
-	// j'utilise l'opérateur ? : pour résoudre si sigma <= 0
+	// j'utilise l'opï¿½rateur ? : pour rï¿½soudre si sigma <= 0
 	return (sigma<=0)? mu : mu + md_randZ()*sigma;
 }
 
 /*==========================================================*/
-// STRATÉGIE 
-// inverser la fonction de répartition d'une distributon exponentielle
+// STRATï¿½GIE 
+// inverser la fonction de rï¿½partition d'une distributon exponentielle
 // qui n'implique qu'un exp se fait naturellement avec le log
 // c'est un calcul simple et direct.
-// consultez au besoin un cours très élémentaire de stats
+// consultez au besoin un cours trï¿½s ï¿½lï¿½mentaire de stats
 double md_randexpo(double lambda){
 
 	double repartition = md_rand();
 	double inverse_repartition = (-log(1.0 - repartition) / lambda);
 	if (inverse_repartition < EPS_DOUBLE) inverse_repartition = 0;
-	// j'utilise l'opérateur ? : pour résoudre si lambda <= 0
+	// j'utilise l'opï¿½rateur ? : pour rï¿½soudre si lambda <= 0
 	return (lambda <= 0) ? 0 : inverse_repartition;
 }
 
