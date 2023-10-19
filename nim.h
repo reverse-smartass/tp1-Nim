@@ -17,7 +17,7 @@
 /*                   D�CLARATION DES FONCTIONS PUBLIQUES                       */
 /*******************************************************************************/
 
-int lire_entier(int min, int max);
+
 int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces);
 void plateau_init(int plateau[], int nb_colonnes);
 void plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_supprimer);
