@@ -16,7 +16,7 @@ void plateau_init(int plateau[], int nb_colonnes)
 
     for (i = 0; i < nb_colonnes; i++)
     {
-        plateau[i] = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);
+        plateau[i] = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);           //Ask the question of if we could leave it that way
     }
 }
 
@@ -78,5 +78,13 @@ int plateau_defragmenter(int plateau[], int nb_colonnes){
 
 void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int * choix_colonne, int * choix_nb_pieces)
 {
+    int choix_colonne = 0;
+    int choix_nb_pieces = 0;
+    int i;
 
+    for (i = 0; i < nb_colonnes; i++)
+    {
+        
+    }
 }
+
