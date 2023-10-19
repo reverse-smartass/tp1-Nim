@@ -2,6 +2,15 @@
 #include "nim.h"
 
 
+
+
+
+
+
+
+
+
+
 int lire_entier(int min, int max){
 
     int i;
@@ -14,3 +23,4 @@ int lire_entier(int min, int max){
     }
     return i;
 }
+
