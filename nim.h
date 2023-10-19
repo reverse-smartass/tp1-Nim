@@ -6,7 +6,7 @@
 #define MANIP_PLATEAU_H_
 
 //#include "codage_numerique.h"
-//#include "m_distributions.h"
+#include "m_distributions.h"
 
 #define PLATEAU_MAX_COLONNES 20		//Nombre maximal de colonnes sur le plateau
 #define PLATEAU_MAX_PIECES 35		//Nombre maximal de pi�ces par colonne
