@@ -1,7 +1,7 @@
-#include <WinConsole.H>
+#include "WinConsole.H"
 #include "nim.h"
-
-
+#include<conio.h>
+#include<stdio.h>
 
 
 
@@ -33,7 +33,7 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select){
 
     for(int l = 0; l < nb_colonnes; l++){
         gotoxy(posxtmp, posy+2);
-        prinf("%i", l);
+        printf("%i", l);
         posxtmp +=2;
     }
 
