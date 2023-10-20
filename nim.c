@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-//#include "nim.h"
+#include "nim.h"
 
 #define PLATEAU_MAX_PIECES 35
 #define PLATEAU_MIN_COLONNES 2
@@ -9,7 +9,7 @@
 #define TRUE   1
 #define FALSE  0
 
-
+//Fonction qui saisit des valeurs aléatoires dans le plateau (tableau) 
 void plateau_init(int plateau[], int nb_colonnes)
 {
     int i;

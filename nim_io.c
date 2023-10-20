@@ -50,4 +50,8 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select){
 
 }
 
-
+static int choisir_colonne(int plateau[], int nb_colonnes)
+{
+    int colonne = 0;
+    int i;
+}
