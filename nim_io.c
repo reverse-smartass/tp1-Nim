@@ -51,7 +51,26 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select){
 static int choisir_colonne(int plateau[], int nb_colonnes)
 {
     int colonne = 0;
-    
+    unsigned char input;
 
+    while(input != 13){
+        input = getch();
+
+        if(input == 0 || input = 224){
+            input = getch();
+            
+            switch (input)
+            {
+            case (75):
+                /* code */
+                break;
+            case (77):
+                /* code */
+                break;
+            default:
+                break;
+            }
+        }
+    }
 
 }
