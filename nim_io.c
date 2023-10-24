@@ -98,9 +98,23 @@ void tour_humain(int plateau[], int nb_colonnes)
     // Call to the function that choose a column
     int choix = choisir_colonne (plateau, nb_colonnes);
     // Call to the function that remove pieces from the chosen column
-    plateau_supprimer_colonne(plateau, nb_colonnes, choix);
+    int nb_pieces = lire_entier(1, plateau[choix]);
+    int result = nim_jouer_tour(plateau, nb_colonnes, choix, nb_pieces);
+    plateau_supprimer_colonne(plateau, nb_colonnes, nb_pieces);
     // Call to the function that update the plateau
     int d = plateau_defragmenter(plateau,nb_colonnes);
     nb_colonnes-=d;
     plateau_afficher(plateau, nb_colonnes, choix);
+
+}
+
+void demarrer_jeu(int niveau){
+    int plateau[PLATEAU_MAX_COLONNES];
+    int nb_colonnes; 
+    nb_colonnes = lire_entier(2,20);
+    plateau_init(plateau, nb_colonnes);
+    while(nb_colonnes>0){
+        tour_humain(plateau, nb_colonnes);
+        tour_ia();
+    }    
 }
