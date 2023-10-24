@@ -18,14 +18,12 @@
 /*******************************************************************************/
 
 
-int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces);
 void plateau_init(int plateau[], int nb_colonnes);
+int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces);
 void plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_supprimer);
 int plateau_defragmenter(int plateau[], int nb_colonnes);
-void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, 
-                            int * choix_colonne, int * choix_nb_pieces);
-void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, 
-                  int * choix_colonne, int * choix_nb_pieces); 
+void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int * choix_colonne, int * choix_nb_pieces);
+void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int * choix_colonne, int * choix_nb_pieces); 
 
 
 
