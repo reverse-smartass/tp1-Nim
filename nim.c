@@ -16,19 +16,11 @@ void plateau_init(int plateau[], int nb_colonnes)
     for (int i = 0; i < nb_colonnes; i++)
     {
         // Générateur de nombre aléatoire de pièces entre 0 et PLATEAU_MAX_PIECES
-        plateau[i] = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);
         plateau[i] = (rand() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);           //Ask the question of if we could leave it that way
     }
 }
 
-void plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_supprimer)
-{
-    for (int i = col_a_supprimer; i < nb_colonnes - 1; i++)
-    {
-        plateau[i] = plateau[i + 1];
-        plateau[i + 1] = 0;
-    }
-}
+
 
 void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int * choix_colonne, int * choix_nb_pieces)
 {
