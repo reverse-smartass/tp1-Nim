@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Admin/OneDrive/Documents/GitHub/tp1",
-      "program": "c:/Users/Admin/OneDrive/Documents/GitHub/tp1/build/Debug/outDebug",
+      "cwd": "c:/GitHub/tp1",
+      "program": "c:/GitHub/tp1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
