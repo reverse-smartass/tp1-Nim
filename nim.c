@@ -9,23 +9,23 @@
 #define TRUE   1
 #define FALSE  0
 
-// Function that select a random number between 0 and the number of columns chosen
-// Fonction qui sélectionne un nombre aléatoire entre 0 et le nombre de colonnes choisies
+// Fonction qui sélectionne un nombre aléatoire entre 0 et le nombre de pièces maximales pour chaque colonnes
 void plateau_init(int plateau[], int nb_colonnes)
 {
-    // Random choices of the number of pieces for each column
+    // Pour toute les colonnes entre 0 et le nombre de colonnes définit (5)
     for (int i = 0; i < nb_colonnes; i++)
     {
-        // Generator for random choices of number of pieces
-        plateau[i] = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);           //Ask the question of if we could leave it that way
+        // Générateur de nombre aléatoire de pièces entre 0 et PLATEAU_MAX_PIECES
+        plateau[i] = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);
     }
 }
 
-//
+// Fonction qui effectue les changements dans le plateau en fonction des choix du (de la) joueur (joueuse)
 int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces){
 
     //bool truefalse = FALSE;
 
+    // Si le nombre de colonnes est supérieur à 0 et inférieur à PLATEAU_MAX_COLONNES
     if(nb_pieces <= plateau[colonne] && nb_pieces >= 0){
         //return plateau[colonne] - nb_pieces;
         return TRUE;
