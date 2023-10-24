@@ -68,6 +68,7 @@ static int choisir_colonne(int plateau[], int nb_colonnes)
     int colonne = 0;
     unsigned char input;
     int choix = 0;
+    
     while(input != 13){
         input = getch();
 
@@ -77,16 +78,15 @@ static int choisir_colonne(int plateau[], int nb_colonnes)
             switch (input)
             {
             case (75):
-                plateau_afficher(plateau, nb_colonnes, (choix < 0 ? nb_colonnes-1 : choix + 1));
-                choix < 0 ? choix = nb_colonnes-1 : choix++;
+                choix = choix-1 < 0 ? choix = nb_colonnes-1 : choix--;
                 break;
             case (77):
-                plateau_afficher(plateau, nb_colonnes, (choix > nb_colonnes-1 ? 0 : choix + 1));
-                choix > nb_colonnes-1 ? choix = 0 : choix++;
+                choix = choix+1 > nb_colonnes-1 ? choix = 0 : choix++;
                 break;
             default:
                 break;
             }
+            plateau_afficher(plateau, nb_colonnes, choix);
         }
     }
 
