@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "WinConsole.H"
 #include "nim_io.h"
 #include <conio.h>
@@ -21,7 +22,7 @@ int lire_entier(int min, int max)
 // Fonction qui affiche le plateau de jeu
 void plateau_afficher(const int plateau[], int nb_colonnes, int col_select)
 {
-
+    // 
     gotoxy(0,5);
     //print axe Y
     for(int k = PLATEAU_MAX_COLONNES; k>=1; k--){
