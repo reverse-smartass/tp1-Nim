@@ -91,4 +91,3 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int * choix_
         // Your implementation should adhere to the rules of the Nim game.
     }
 }
-
