@@ -1,28 +1,28 @@
 /*==========================================================*/
-// Pour et par l'équipe du DEG
+// Pour et par l'ï¿½quipe du DEG
 /*==========================================================*/
 /* 
 	Ce module simple 
 
-	1-) offre une interface nécessaire au générateur pseudo-aléatoire  de stdlib 
+	1-) offre une interface nï¿½cessaire au gï¿½nï¿½rateur pseudo-alï¿½atoire  de stdlib 
 
-	2-) assure un accès fonctionnel  correct à diverses distributions classiques dont
+	2-) assure un accï¿½s fonctionnel  correct ï¿½ diverses distributions classiques dont
 		des uniformes diverses, la distribution normale et la distribution exponentielle
 
-	3-) Les 9 fonctions présentes assurent
-		l'initialisation du générateur 
-			( sous 2 formes, implicite et explicite avec une valeur entière en paramètre )
+	3-) Les 9 fonctions prï¿½sentes assurent
+		l'initialisation du gï¿½nï¿½rateur 
+			( sous 2 formes, implicite et explicite avec une valeur entiï¿½re en paramï¿½tre )
 		
-		l'émission d'une entier dans une distribution uniforme
+		l'ï¿½mission d'une entier dans une distribution uniforme
 			( sous 2 formes, entre 1 et N  et entre deux bornes )
 		
-		l'émission d'une réel dans une distribution uniforme 
+		l'ï¿½mission d'une rï¿½el dans une distribution uniforme 
 			( sous 2 formes, entre 0 et 1 et entre deux bornes)
 		
-		l'émission d'une réel dans une distribution normale 
-			( sous 2 formes, dans Z (0,1) et à partir de mu et sigma)
+		l'ï¿½mission d'une rï¿½el dans une distribution normale 
+			( sous 2 formes, dans Z (0,1) et ï¿½ partir de mu et sigma)
 
-		l'émission d'une réel dans une distribution exponentielle 
+		l'ï¿½mission d'une rï¿½el dans une distribution exponentielle 
 			(1 forme avec un lambda explicite)
 
 */
@@ -36,37 +36,38 @@
 /*==========================================================*/
 
 #include<stdlib.h>
+#include<stdio.h>
 #include<math.h>
 #include<time.h>
 
 /*==========================================================*/
 
 /*==========================================================*/
-// un epsilon réel sert à mesurer la proximité du 0
+// un epsilon rï¿½el sert ï¿½ mesurer la proximitï¿½ du 0
 #define EPS_DOUBLE 0.00000001
 
 
 /*==========================================================*/
 
-/* VOICI UNE INTERFACE MODULAIRE STANDARD POUR NOS ÉTUDIANTS */
+/* VOICI UNE INTERFACE MODULAIRE STANDARD POUR NOS ï¿½TUDIANTS */
 
 /*==========================================================*/
-/*  D'abord l'offre de deux fonctions d'initialisation du générateur. Un générateur 
-	non-initialisé s'initialise en fait à 0 et émet la même séquence ce qui fait 
-	douter du caractère aléatoire.... 
+/*  D'abord l'offre de deux fonctions d'initialisation du gï¿½nï¿½rateur. Un gï¿½nï¿½rateur 
+	non-initialisï¿½ s'initialise en fait ï¿½ 0 et ï¿½met la mï¿½me sï¿½quence ce qui fait 
+	douter du caractï¿½re alï¿½atoire.... 
 	C'est au client de l'initialiser
 	MAIS JUSTE UNE FOIS dans tout le programme
 
-	réinitialiser dans  une fonction appellée en boucle fera 
-	définitivement perdre toute qualité au générateur 
-	(surtout que rand de stdlib n'en a déjà pas beaucoup hs)
+	rï¿½initialiser dans  une fonction appellï¿½e en boucle fera 
+	dï¿½finitivement perdre toute qualitï¿½ au gï¿½nï¿½rateur 
+	(surtout que rand de stdlib n'en a dï¿½jï¿½ pas beaucoup hs)
 */
 
 /*==========================================================*/
 /* La fonction md_srand 
- la forme d'initialisation la plus classique d'un générateur  
- à partir d'un entier quelconque, la séquence pseudo aléatoire 
- à venir est totalement déterminée par la valeur reçue en paramètre
+ la forme d'initialisation la plus classique d'un gï¿½nï¿½rateur  
+ ï¿½ partir d'un entier quelconque, la sï¿½quence pseudo alï¿½atoire 
+ ï¿½ venir est totalement dï¿½terminï¿½e par la valeur reï¿½ue en paramï¿½tre
 
 PARAMETRE(s): s, un entier positif quelconque
 
@@ -81,30 +82,30 @@ void md_srand(unsigned int s);
 
 /*==========================================================*/
 /* la fonction md_srand_interne 
- une forme alternative d'initialisation du générateur à partir 
+ une forme alternative d'initialisation du gï¿½nï¿½rateur ï¿½ partir 
  de l'horloge interne de la machine,  l'horloge donne un entier
- qui sert de paramètre à la fonction précédente. 
- Cette valeur est retournée pour des motifs de possible reproduction
- des conditions initiales d'une simulation numérique.
+ qui sert de paramï¿½tre ï¿½ la fonction prï¿½cï¿½dente. 
+ Cette valeur est retournï¿½e pour des motifs de possible reproduction
+ des conditions initiales d'une simulation numï¿½rique.
 
 PARAMETRE(s): Aucun
 
-SORTIE: l'entier qui a véritablement initialisé le générateur
+SORTIE: l'entier qui a vï¿½ritablement initialisï¿½ le gï¿½nï¿½rateur
 
 SPECS: aucune
 */
 unsigned int md_srand_interne(void);
 /*==========================================================*/
 
-/* LES FONCTIONS D'ÉMISSION DANS LES DISTRIBUTIONS SPÉCIFIÉES */
+/* LES FONCTIONS D'ï¿½MISSION DANS LES DISTRIBUTIONS SPï¿½CIFIï¿½ES */
 
 /*==========================================================*/
 /* La fonction md_rand   
-L'émission d'un nombre réel dans la distribution uniforme 0,1 
+L'ï¿½mission d'un nombre rï¿½el dans la distribution uniforme 0,1 
 
 PARAMETRE(s): Aucun
 
-SORTIE : la valeur réelle émise dans cette distribution
+SORTIE : la valeur rï¿½elle ï¿½mise dans cette distribution
 
 SPECS : aucune
 */
@@ -113,28 +114,28 @@ double md_rand(void);
 
 /*==========================================================*/
 /* La fonction md_randf
-L'émission d'un nombre réel dans une  uniforme [b1, b2] 
+L'ï¿½mission d'un nombre rï¿½el dans une  uniforme [b1, b2] 
 
-PARAMETRE(s): deux valeurs réelles quelconques qui serviront 
-               de bornes à l'intervalle
+PARAMETRE(s): deux valeurs rï¿½elles quelconques qui serviront 
+               de bornes ï¿½ l'intervalle
 
-SORTIE : la valeur réelle émise dans cette distribution
+SORTIE : la valeur rï¿½elle ï¿½mise dans cette distribution
 
-SPECS : l'ordre des paramètres n'a aucune importance
+SPECS : l'ordre des paramï¿½tres n'a aucune importance
 */
 double md_randf(double b1, double b2);
 /*==========================================================*/
 
 /*==========================================================*/
 /* La fonction md_randi
-L'émission d'un nombre entier  dans une uniforme[1, borne]
+L'ï¿½mission d'un nombre entier  dans une uniforme[1, borne]
 
-PARAMETRE(s): une valeur entière quelconque
+PARAMETRE(s): une valeur entiï¿½re quelconque
 
-SORTIE : la valeur entiere positive émise dans cette distribution
+SORTIE : la valeur entiere positive ï¿½mise dans cette distribution
 
-SPECS :  si le paramètre effectif est négatif, c'est sa valeur absolue
-		 qui sera considérée 
+SPECS :  si le paramï¿½tre effectif est nï¿½gatif, c'est sa valeur absolue
+		 qui sera considï¿½rï¿½e 
 		 recevant 0, retour automatique de 0 (le seul 0 possible)
 */
 int md_randi(int borne);
@@ -142,55 +143,55 @@ int md_randi(int borne);
 
 /*==========================================================*/
 /* La fonction md_randint
-L'émission dans la distribution uniforme obtenue des deux paramètres
+L'ï¿½mission dans la distribution uniforme obtenue des deux paramï¿½tres
 
-PARAMETRE(s) : les deux valeurs entières quelconques  servent 
-               de bornes à l'intervalle
+PARAMETRE(s) : les deux valeurs entiï¿½res quelconques  servent 
+               de bornes ï¿½ l'intervalle
 
-SORTIE : la valeur entiere émise dans cette distribution
+SORTIE : la valeur entiere ï¿½mise dans cette distribution
 
-SPECS :peu importe l'ordre des paramètres
+SPECS :peu importe l'ordre des paramï¿½tres
 */
 int md_randint(int b1, int b2);
 /*==========================================================*/
 
 /*==========================================================*/
 /* La fonction md_randZ
-L'émission d'un nombre réel dans la distribution normale Z,
-	la plus classique  de moyenne 0 et d'écart type 1
+L'ï¿½mission d'un nombre rï¿½el dans la distribution normale Z,
+	la plus classique  de moyenne 0 et d'ï¿½cart type 1
 
 PARAMETRE(s) : Aucun
 
-SORTIE : la valeur réelle émise dans cette distribution
+SORTIE : la valeur rï¿½elle ï¿½mise dans cette distribution
 
-SPECS : celle-ci a une parité d'émission
-	ce qui peut déconcerter si on réinitialise le générateur
-	en cours d'exécution de la simulation ( ce qui en réalité ne doit JAMAIS être fait)
+SPECS : celle-ci a une paritï¿½ d'ï¿½mission
+	ce qui peut dï¿½concerter si on rï¿½initialise le gï¿½nï¿½rateur
+	en cours d'exï¿½cution de la simulation ( ce qui en rï¿½alitï¿½ ne doit JAMAIS ï¿½tre fait)
 */
 double md_randZ(void);
 /*==========================================================*/
 /*==========================================================*/
 /* La fonction md_randnormal
-L'émission d'un nombre réel dans une distribution normale quelconque, 
-   de moyenne mu  et d'écart-type sigma donnés en paramètres
+L'ï¿½mission d'un nombre rï¿½el dans une distribution normale quelconque, 
+   de moyenne mu  et d'ï¿½cart-type sigma donnï¿½s en paramï¿½tres
 
-PARAMETRE(s) : mu définit la moyenne voulue et sigma l'écart-type
+PARAMETRE(s) : mu dï¿½finit la moyenne voulue et sigma l'ï¿½cart-type
 
-SORTIE : la valeur réelle émise dans cette distribution
+SORTIE : la valeur rï¿½elle ï¿½mise dans cette distribution
 
-SPECS : mêmes que la précédente et retour automatique de mu si sigma est négatif
+SPECS : mï¿½mes que la prï¿½cï¿½dente et retour automatique de mu si sigma est nï¿½gatif
 */
 double md_randnormal(double mu, double sigma);
 
 /*==========================================================*/
 /*==========================================================*/
 /* La fonction md_randexpo
-   L'émission d'un temps d'attente dans une distribution exponentielle 
-   le temps d'attente  moyen est donné par l'inverse du paramètre
+   L'ï¿½mission d'un temps d'attente dans une distribution exponentielle 
+   le temps d'attente  moyen est donnï¿½ par l'inverse du paramï¿½tre
 
-PARAMETRE(s) : lambda un réel positif 
+PARAMETRE(s) : lambda un rï¿½el positif 
 
-SORTIE : la valeur réelle émise dans cette distribution
+SORTIE : la valeur rï¿½elle ï¿½mise dans cette distribution
 
 SPECS : retour automatique de 0 si lambda <= 0 
 */
