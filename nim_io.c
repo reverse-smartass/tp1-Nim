@@ -1,11 +1,11 @@
 #include "WinConsole.H"
 #include "nim_io.h"
-#include<conio.h>
+#include <conio.h>
 
 
-
-// Fonction qui lit un entier entre min et max (between 1 and 4)
-int lire_entier(int min, int max){
+// Fonction qui lit un entier entre min et max
+int lire_entier(int min, int max)
+{
 
     int i;
 
@@ -19,7 +19,8 @@ int lire_entier(int min, int max){
 }
 
 // Fonction qui affiche le plateau de jeu
-void plateau_afficher(const int plateau[], int nb_colonnes, int col_select){
+void plateau_afficher(const int plateau[], int nb_colonnes, int col_select)
+{
 
     gotoxy(0,5);
     //print axe Y
