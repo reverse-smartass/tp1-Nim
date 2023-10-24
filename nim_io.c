@@ -89,14 +89,17 @@ static int choisir_colonne(int plateau[], int nb_colonnes)
             plateau_afficher(plateau, nb_colonnes, choix);
         }
     }
-
+    return choix;
 }
 
 void tour_humain(int plateau[], int nb_colonnes)
 {
     // Call to the function that choose a column
-    choisir_colonne (plateau, nb_colonnes);
+    int i = choisir_colonne (plateau, nb_colonnes);
     // Call to the function that remove pieces from the chosen column
+    plateau_supprimer_colonne(plateau, nb_colonnes, i);
     // Call to the function that update the plateau
-    nim_jouer_tour (plateau, nb_colonnes);
+    int d = plateau_defragmenter(plateau,nb_colonnes);
+    nb_colonnes-=d;
+    plateau_afficher(plateau, nb_colonnes, i);
 }
