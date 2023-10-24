@@ -4,7 +4,7 @@
 
 
 
-
+// Fonction qui lit un entier entre min et max (between 1 and 4)
 int lire_entier(int min, int max){
 
     int i;
@@ -18,6 +18,7 @@ int lire_entier(int min, int max){
     return i;
 }
 
+// Fonction qui affiche le plateau de jeu
 void plateau_afficher(const int plateau[], int nb_colonnes, int col_select){
 
     gotoxy(0,5);
@@ -61,6 +62,7 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select){
 
 }
 
+// Fonction qui permet de choisir une colonne parmi les colonnes disponibles
 static int choisir_colonne(int plateau[], int nb_colonnes)
 {
     int colonne = 0;
@@ -88,4 +90,13 @@ static int choisir_colonne(int plateau[], int nb_colonnes)
         }
     }
 
+}
+
+void tour_humain(int plateau[], int nb_colonnes)
+{
+    // Call to the function that choose a column
+    choisir_colonne (int plateau, int nb_colonnes);
+    // Call to the function that remove pieces from the chosen column
+    // Call to the function that update the plateau
+    nim_jouer_tour (int plateau, int nb_colonnes);
 }
