@@ -9,10 +9,10 @@ int lire_entier(int min, int max)
 
     int i;
 
-    printf("Saisir une valeur entière entre 1 et 4: ");
+    printf("Saisir une valeur entière entre %i et %i: ", min, max);
     scanf("%i", &i);
-    while(i > 4 | i < 1){
-        printf("Saisir une valeur entière entre 1 et 4: ");
+    while(i > max | i < min){
+        printf("Erreur! Saisir une valeur entière entre %i et %i: ", min, max);
         scanf("%i", &i);
     }
     return i;
