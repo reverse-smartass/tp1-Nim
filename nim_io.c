@@ -56,7 +56,7 @@ static int choisir_colonne(int plateau[], int nb_colonnes)
     while(input != 13){
         input = getch();
 
-        if(input == 0 || input = 224){
+        if(input == 0 || input == 224){
             input = getch();
             
             switch (input)
