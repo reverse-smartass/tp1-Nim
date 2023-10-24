@@ -9,30 +9,19 @@
 #define TRUE   1
 #define FALSE  0
 
-//Fonction qui saisit des valeurs aléatoires dans le plateau (tableau) 
+// Function that select a random number between 0 and the number of columns chosen
+// Fonction qui sélectionne un nombre aléatoire entre 0 et le nombre de colonnes choisies
 void plateau_init(int plateau[], int nb_colonnes)
 {
+    // Random choices of the number of pieces for each column
     for (int i = 0; i < nb_colonnes; i++)
     {
+        // Generator for random choices of number of pieces
         plateau[i] = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);           //Ask the question of if we could leave it that way
     }
 }
 
-void plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_supprimer)
-{
-    for (int i = col_a_supprimer; i < nb_colonnes - 1; i++)
-    {
-        plateau[i] = plateau[i + 1];
-        plateau[i + 1] = 0;
-    }
-}
-
-void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int * choix_colonne, int * choix_nb_pieces)
-{
-    * choix_colonne = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_COLONNES + 1);
-    * choix_nb_pieces = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);
-}
-
+//
 int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces){
 
     //bool truefalse = FALSE;
@@ -46,6 +35,7 @@ int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces){
     }
 }
 
+// Function that removes the number of pieces chosen from the chosen column
 void plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_supprimer)
 {
     for (int i = col_a_supprimer; i < nb_colonnes - 1; i++)
@@ -55,7 +45,7 @@ void plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_supprim
     }
 }
 
-
+// Function that removes all the pieces from the chosen column
 int plateau_defragmenter(int plateau[], int nb_colonnes){
 
     int count = 0;
@@ -68,6 +58,12 @@ int plateau_defragmenter(int plateau[], int nb_colonnes){
         }
     }
     return nb_colonnes - count;
+}
+
+void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int * choix_colonne, int * choix_nb_pieces)
+{
+    * choix_colonne = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_COLONNES + 1);
+    * choix_nb_pieces = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);
 }
 
 void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int * choix_colonne, int * choix_nb_pieces)
