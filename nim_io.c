@@ -95,8 +95,8 @@ static int choisir_colonne(int plateau[], int nb_colonnes)
 void tour_humain(int plateau[], int nb_colonnes)
 {
     // Call to the function that choose a column
-    choisir_colonne (int plateau, int nb_colonnes);
+    choisir_colonne (plateau, nb_colonnes);
     // Call to the function that remove pieces from the chosen column
     // Call to the function that update the plateau
-    nim_jouer_tour (int plateau, int nb_colonnes);
+    nim_jouer_tour (plateau, nb_colonnes);
 }
