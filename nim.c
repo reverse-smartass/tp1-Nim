@@ -12,9 +12,7 @@
 //Fonction qui saisit des valeurs aléatoires dans le plateau (tableau) 
 void plateau_init(int plateau[], int nb_colonnes)
 {
-    int i;
-
-    for (i = 0; i < nb_colonnes; i++)
+    for (int i = 0; i < nb_colonnes; i++)
     {
         plateau[i] = (random() / ((double) RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);           //Ask the question of if we could leave it that way
     }
@@ -22,9 +20,7 @@ void plateau_init(int plateau[], int nb_colonnes)
 
 void plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_supprimer)
 {
-    int i;
-
-    for (i = col_a_supprimer; i < nb_colonnes - 1; i++)
+    for (int i = col_a_supprimer; i < nb_colonnes - 1; i++)
     {
         plateau[i] = plateau[i + 1];
         plateau[i + 1] = 0;
@@ -52,9 +48,7 @@ int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces){
 
 void plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_supprimer)
 {
-    int i;
-
-    for (i = col_a_supprimer; i < nb_colonnes - 1; i++)
+    for (int i = col_a_supprimer; i < nb_colonnes - 1; i++)
     {
         plateau[i] = plateau[i + 1];
         plateau[i + 1] = 0;

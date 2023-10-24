@@ -76,3 +76,9 @@ static int choisir_colonne(int plateau[], int nb_colonnes)
     }
 
 }
+
+void tour_humain(int plateau[], int nb_colonnes)
+{
+    choisir_colonne (int plateau, int nb_colonnes);
+    
+}
