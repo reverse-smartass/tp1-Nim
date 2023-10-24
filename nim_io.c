@@ -7,11 +7,11 @@
 // Fonction qui lit un entier entre min et max
 int lire_entier(int min, int max)
 {
-
     int i;
 
     printf("Saisir une valeur entière entre %i et %i: ", min, max);
     scanf("%i", &i);
+    
     while(i > max | i < min){
         printf("Erreur! Saisir une valeur entière entre %i et %i: ", min, max);
         scanf("%i", &i);
@@ -29,14 +29,14 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select)
 
     // Séparation de l'espace de texte (Affichage du plateau après les 5 premières lignes)
     gotoxy(0,5);
-    
+
     //print axe Y
     for(int k = PLATEAU_MAX_COLONNES; k >= 1; k--){
         printf("%i\n\n", k);
     }
 
     //print axe X 
-    int posY = posy+4;
+    int posY = posy + 4;
     for(int l = 0; l < nb_colonnes; l++){
         gotoxy(posxtmp, posY);
         printf("%i", l);
@@ -79,10 +79,10 @@ static int choisir_colonne(int plateau[], int nb_colonnes)
             switch (input)
             {
             case (75):
-                choix = (choix - 1) < 0 ? choix = (nb_colonnes - 1) : choix --;
+                choix = (choix - 1) < 0 ? choix = (nb_colonnes - 1) : choix--;
                 break;
             case (77):
-                choix = (choix + 1) > (nb_colonnes - 1) ? choix = 0 : choix ++;
+                choix = (choix + 1) > (nb_colonnes - 1) ? choix = 0 : choix++;
                 break;
             default:
                 break;
