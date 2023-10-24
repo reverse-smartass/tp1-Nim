@@ -1,6 +1,6 @@
 #include "WinConsole.H"
 #include "nim_io.h"
-#include<conio.h>
+#include <conio.h>
 
 
 
