@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 
 #define CODAGE_NB_BITS 8
 /*******************************************************************************/
