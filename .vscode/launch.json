@@ -9,7 +9,7 @@
       "stopAtEntry": false,
       "externalConsole": true,
       "cwd": "c:/GitHub/tp1",
-      "program": "c:/GitHub/tp1/build/Debug/outDebug",
+      "program": "c:/GitHub/tp1/test.exe",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

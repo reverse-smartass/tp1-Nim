@@ -67,14 +67,16 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select)
 static int choisir_colonne(int plateau[], int nb_colonnes)
 {
     int colonne = 0;
-    unsigned char input;
+    unsigned char input ;
     int choix = 0;
+
+    input = _getch();
     
     while (input != 13){
-        input = getch();
+        input = _getch();
 
         if (input == 0 || input == 224){
-            input = getch();
+            input = _getch();
             
             switch (input)
             {
@@ -108,7 +110,7 @@ void tour_humain(int plateau[], int nb_colonnes)
 
 }
 
-void demarrer_jeu(int niveau){
+/*void demarrer_jeu(int niveau) {
     int plateau[PLATEAU_MAX_COLONNES];
     int nb_colonnes; 
     nb_colonnes = lire_entier(2,20);
@@ -117,4 +119,4 @@ void demarrer_jeu(int niveau){
         tour_humain(plateau, nb_colonnes);
         tour_ia();
     }    
-}
+}*/
