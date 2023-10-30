@@ -32,3 +32,4 @@ void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][
 void sommes_mat_binaire(const int matrice[][CODAGE_NB_BITS], int nb_lignes, int sommes[]);
 int position_premier_impaire(const int tab[]);
 void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int * choix_colonne, int * choix_nb_pieces); 
+
