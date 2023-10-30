@@ -1,7 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>           //For the functions somme, pwr() and shit
 #include "nim.h"
+#include "codage_numerique.h"
 
 #define PLATEAU_MAX_PIECES 35
 #define PLATEAU_MIN_COLONNES 2
@@ -83,4 +85,14 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_c
         // If an error occurs, set both references to -1.
         // Your implementation should adhere to the rules of the Nim game.
     }
+}
+
+void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][CODAGE_NB_BITS])
+{
+
+}
+
+void sommes_mat_binaire(const int matrice[][CODAGE_NB_BITS], int nb_lignes, int sommes[])
+{
+    
 }
