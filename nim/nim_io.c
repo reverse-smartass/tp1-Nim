@@ -117,6 +117,7 @@ void demarrer_jeu(int niveau) {
     plateau_init(plateau, nb_colonnes);
     while(nb_colonnes>0){
         tour_humain(plateau, nb_colonnes);
-        tour_ia();          //Appel à la fonction plateau_defragmenter pour défragmenter le plateau (board's update)
+        tour_ia();
+        plateau_defragmenter(plateau, nb_colonnes, 0);        //Appel à la fonction plateau_defragmenter pour défragmenter le plateau (board's update)
     }    
 }
