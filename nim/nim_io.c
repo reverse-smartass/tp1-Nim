@@ -110,13 +110,13 @@ void tour_humain(int plateau[], int nb_colonnes)
 
 }
 
-/*void demarrer_jeu(int niveau) {
+void demarrer_jeu(int niveau) {
     int plateau[PLATEAU_MAX_COLONNES];
     int nb_colonnes; 
     nb_colonnes = lire_entier(2,20);
     plateau_init(plateau, nb_colonnes);
     while(nb_colonnes>0){
         tour_humain(plateau, nb_colonnes);
-        tour_ia();
+        tour_ia();          //Appel à la fonction plateau_defragmenter pour défragmenter le plateau (board's update)
     }    
-}*/
+}

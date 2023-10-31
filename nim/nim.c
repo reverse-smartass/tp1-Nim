@@ -87,15 +87,34 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_c
     }
 }
 
+
+
+
+// Fonction reçoit le plateau des valeurs pour remplir la matrice binaire (nb binaire)
+// une boucle FOR pour chaque position du plateau, appel à la fonction codage_dec2bin (...)
+// matrice = adresse au tableau de valeur, matrice[] = adresse à la ligne indiqué
 void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][CODAGE_NB_BITS])
 {
-    for (int i = 0; i < CODAGE_NB_BITS; i++)
+    for (int i = 0; i < nb_colonnes; i++)
     {
-        
+        codage_bin2dec;
     }
 }
 
+// Fonction qui reçoit la somme des nombres de * (1)
 void sommes_mat_binaire(const int matrice[][CODAGE_NB_BITS], int nb_lignes, int sommes[])
 {
     
+}
+
+// Fonction qui, avec tableau des sommes, détermine les premiers impaires du tableau
+int position_premier_impaire(const int tab[])
+{
+
+}
+
+// NOT FOR TODAY (31/11/2023)
+void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int * choix_colonne, int * choix_nb_pieces)
+{
+
 }
