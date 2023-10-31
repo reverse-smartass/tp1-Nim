@@ -1,9 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>           //For the functions somme, pwr() and shit
-#include "nim.h"
-#include "codage_numerique.h"
+#include "nim_io.h"
 
 #define PLATEAU_MAX_PIECES 35
 #define PLATEAU_MIN_COLONNES 2
@@ -20,10 +15,6 @@ void plateau_init(int plateau[], int nb_colonnes)
         plateau[i] = (rand() / ((double)RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);           //Ask the question of if we could leave it that way
     }
 }
-
-
-
-
 
 int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces)
 {
@@ -95,10 +86,13 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_c
 // matrice = adresse au tableau de valeur, matrice[] = adresse à la ligne indiqué
 void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][CODAGE_NB_BITS])
 {
+    int pos = position_premier_impaire;
+
     for (int i = 0; i < nb_colonnes; i++)
     {
-        codage_bin2dec;
+        codage_dec2bin(plateau[pos], matrice[pos]);
     }
+    afficher_tab_bits(tab_bits[], nb_bits)
 }
 
 // Fonction qui reçoit la somme des nombres de * (1)

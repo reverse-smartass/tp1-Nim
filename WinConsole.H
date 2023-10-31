@@ -1,4 +1,4 @@
-// WinConsole.H : Windows text console management function library
+// winconsole.h : Windows text console management function library
 
 // --- Function Prototypes ---
 

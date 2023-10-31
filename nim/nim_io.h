@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "nim.h"
+#include "winconsole.h"
+
 /*******************************************************************************/
 /*                   D�CLARATION DES FONCTIONS PUBLIQUES                       */
 /*******************************************************************************/

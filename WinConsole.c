@@ -1,4 +1,4 @@
-// WinConsole.CPP : Windows text console management function library
+// winconsole.cpp : Windows text console management function library
 
 //the following line is necessary for the GetConsoleWindow() function to work!
 //it basically says that you are running this program on Windows 2000 or higher
