@@ -107,7 +107,24 @@ void sommes_mat_binaire(const int matrice[][CODAGE_NB_BITS], int nb_lignes, int 
 // Fonction qui, avec tableau des sommes, détermine les premiers impaires du tableau
 int position_premier_impaire(const int tab[])
 {
+    int modulo;
+    int i;
 
+    while (modulo != 1)
+    {
+        for (i = 0; i < tab[]; i++)
+        {
+            modulo = tab[i] % 2;
+        }
+    }
+    if (modulo == 1)
+    {
+        return i;
+    }
+    else (tab[i] == 0)
+    {
+        return -1;
+    }
 }
 
 // NOT FOR TODAY (31/11/2023)
