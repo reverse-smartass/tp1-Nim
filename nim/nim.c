@@ -89,7 +89,10 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_c
 
 void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][CODAGE_NB_BITS])
 {
-
+    for (int i = 0; i < CODAGE_NB_BITS; i++)
+    {
+        
+    }
 }
 
 void sommes_mat_binaire(const int matrice[][CODAGE_NB_BITS], int nb_lignes, int sommes[])
