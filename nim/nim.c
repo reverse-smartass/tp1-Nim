@@ -1,5 +1,10 @@
 #include "nim_io.h"
 
+
+/****************************************************
+                    CONSTANTES                      
+****************************************************/
+
 #define PLATEAU_MAX_PIECES 35
 #define PLATEAU_MIN_COLONNES 2
 #define PLATEAU_MAX_COLONNES 20	
