@@ -43,3 +43,9 @@
 
 /*  */
 #define EPS_DOUBLE 0.00000001
+
+/* Valeur ASCII de la touche "flèche gauche" */
+#define FLECHE_GAUCHE 75
+
+/* Valeur ASCII de la touche "flèche droite" */
+#define FLECHE_DROITE 77
