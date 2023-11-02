@@ -1,5 +1,6 @@
 #include"codage_numerique.h"
 
+// Pour l'affichage des bits dans le bonne ordre (valeur binaire switcher)
 int inverser_tab_bits(int tab_bits[], int nb_bits){
 
        int time = nb_bits/2;

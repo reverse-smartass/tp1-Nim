@@ -117,7 +117,7 @@ int position_premier_impaire(const int tab[])
 
     while (modulo != 1)
     {
-        for (i = 0; i < tab[]; i++)
+        for (i = 0; i < tab; i++)
         {
             modulo = tab[i] % 2;
         }
