@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
+#include "MAIN_TP1.h"
 #include "WinConsole.H"
 #include "nim_io.h"
 #include <conio.h>

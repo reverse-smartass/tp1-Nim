@@ -26,11 +26,14 @@
 
 #define MANIP_PLATEAU_H_
 
-/* Le nombre maximum de colonnes pour le plateau de jeu */
-#define PLATEAU_MAX_COLONNES 20
-
 /* Le nombre maximum de pièces pour chaque colonne du jeu */
 #define PLATEAU_MAX_PIECES 35
+
+/* Le nombre minimum de colonnes pour le plateau de jeu */
+#define PLATEAU_MIN_COLONNES 2
+
+/* Le nombre maximum de colonnes pour le plateau de jeu */
+#define PLATEAU_MAX_COLONNES 20
 
 /* L'affirmation si la contrainte est respectée */
 #define TRUE   1

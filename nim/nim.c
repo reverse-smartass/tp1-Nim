@@ -1,15 +1,6 @@
+
+#include "MAIN_TP1.h"
 #include "nim_io.h"
-
-
-/****************************************************
-                    CONSTANTES                      
-****************************************************/
-
-#define PLATEAU_MAX_PIECES 35
-#define PLATEAU_MIN_COLONNES 2
-#define PLATEAU_MAX_COLONNES 20	
-#define TRUE   1
-#define FALSE  0
 
 // Fonction qui sélectionne un nombre aléatoire entre 0 et le nombre de pièces maximales pour chaque colonnes
 void plateau_init(int plateau[], int nb_colonnes)
@@ -17,7 +8,7 @@ void plateau_init(int plateau[], int nb_colonnes)
     // Pour toute les colonnes entre 0 et le nombre de colonnes définit (5)
     for (int i = 0; i < nb_colonnes; i++) {
         // Générateur de nombre aléatoire de pièces entre 0 et PLATEAU_MAX_PIECES
-        plateau[i] = (rand() / ((double)RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);           //Ask the question of if we could leave it that way
+        plateau[i] = (rand() / ((double)RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);
     }
 }
 
@@ -25,12 +16,13 @@ int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces)
 {
     //bool truefalse = FALSE;
 
-    // Si le nombre de pièce choisi est supérieur au nombre de pièce dans la colonne choisie et que le nombre de pièce choisi est positif
+    // Si le nb_pieces est inférieur ou égal au nombre de pièce dans le jeu et nb_pieces est un nombre entier
     if (nb_pieces <= plateau[colonne] && nb_pieces >= 0) {
-        //return plateau[colonne] - nb_pieces;
+        // retour TRUE (1) au jeu
         return TRUE;
     }
     else {
+        // Aussi non, retour FALSE (0) au jeu
         return FALSE;
     }
 }
@@ -40,6 +32,8 @@ void plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_supprim
 {
     // Pour toutes les colonnes entre la colonne choisie et la colonne juste avant la colonnes maximum (5)
     for (int i = col_a_supprimer; i < nb_colonnes - 1; i++) {
+
+        // Les colonnes du plateau décale vers la gauche et la colonne à droite = 0
         plateau[i] = plateau[i + 1];
         plateau[i + 1] = 0;
     }
@@ -51,13 +45,15 @@ int plateau_defragmenter(int plateau[], int nb_colonnes)
     // Initialisation du compteur de pieces supprimees dans la colonne
     int count = 0;
 
-    // Pour toutes les colonnes entre 0 et le nombre de colonnes définit (5)
+    // Pour toutes les colonnes inférieur au nombre de colonnes maximum (5)
     for (int i = 0; i < nb_colonnes; i++) {
+        // Si colonne = 0, supprimer la colonne (plateau_supprimer_colonne)
         if (plateau[i] == 0) {
             plateau_supprimer_colonne(plateau, nb_colonnes, plateau[i]);
             count++;
         }
     }
+    // Retourne le nombre de colonnes supprimées
     return nb_colonnes - count;
 }
 
@@ -69,6 +65,7 @@ void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int* choix_col
     *choix_nb_pieces = (rand() / ((double)RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);
 }
 
+// Fonction qui détermine le choix de jeu de l'ordinateur (en fonction du niveau de difficulté)
 void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_colonne, int* choix_nb_pieces)
 {
     if (niveau == 1) {
