@@ -68,11 +68,12 @@ void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int* choix_col
 // Fonction qui détermine le choix de jeu de l'ordinateur (en fonction du niveau de difficulté)
 void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_colonne, int* choix_nb_pieces)
 {
+    // Si niveau = 1, utiliser la fonction nim_choix_ia_aleatoire
     if (niveau == 1) {
-        // Use random choice function (nim_choix_ia_aleatoire) when niveau is less than 2
         nim_choix_ia_aleatoire(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
     }
-    else {
+
+    else if  {
         // Implement your intelligent algorithm here
         // Ensure that you set the chosen column and number of pieces in choix_colonne and choix_nb_pieces.
         // If an error occurs, set both references to -1.
