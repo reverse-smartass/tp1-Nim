@@ -1,6 +1,7 @@
 
 #include "MAIN_TP1.h"
 #include "nim_io.h"
+#include "codage_numerique.h"
 
 // Fonction qui sélectionne un nombre aléatoire entre 0 et le nombre de pièces maximales pour chaque colonnes
 void plateau_init(int plateau[], int nb_colonnes)
@@ -73,11 +74,15 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_c
         nim_choix_ia_aleatoire(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
     }
 
-    else if  {
+    // Si niveau = 2-3, activaion de l'algorithme de l'ordinateur à 50% et 100%
+    else if (niveau == 2 || niveau == 3){
         // Implement your intelligent algorithm here
         // Ensure that you set the chosen column and number of pieces in choix_colonne and choix_nb_pieces.
         // If an error occurs, set both references to -1.
         // Your implementation should adhere to the rules of the Nim game.
+    }
+    else{
+        EXIT_SUCCESS;
     }
 }
 
@@ -88,11 +93,21 @@ void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][
 {
     int pos = position_premier_impaire;
 
-    for (int i = 0; i < nb_colonnes; i++)
+    // Pour toutes les colonnes inférieur au nb de colonne dans le plateau
+    /*for (int i = 0; i < nb_colonnes; i++)
     {
+        // Construction de la matrice avec les valeurs décimales traduit du binaire
         codage_dec2bin(plateau[pos], matrice[pos]);
     }
     afficher_tab_bits(tab_bits[], nb_bits);
+*/
+    for (int i = 0; i < nb_colonnes; i++) {
+        int nombre_pieces = plateau[i];
+        for (int j = 0; j < CODAGE_NB_BITS; j++) {
+            // Remplir la matrice en utilisant la représentation binaire du nombre de pièces
+            matrice[i][j] = (plateau[i] >> j) & 1;
+        }
+    }
 }
 
 // Fonction qui reçoit la somme des nombres de * (1)
