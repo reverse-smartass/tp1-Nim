@@ -91,16 +91,16 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_c
 // matrice = adresse au tableau de valeur, matrice[] = adresse à la ligne indiqué
 void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][CODAGE_NB_BITS])
 {
-    int pos = position_premier_impaire;
-
+/*    int pos = position_premier_impaire;
     // Pour toutes les colonnes inférieur au nb de colonne dans le plateau
-    /*for (int i = 0; i < nb_colonnes; i++)
+    for (int i = 0; i < nb_colonnes; i++)
     {
         // Construction de la matrice avec les valeurs décimales traduit du binaire
         codage_dec2bin(plateau[pos], matrice[pos]);
     }
     afficher_tab_bits(tab_bits[], nb_bits);
 */
+    // Pour toutes les colonnes inférieur au nb de colonne dans le plateau
     for (int i = 0; i < nb_colonnes; i++) {
         int nombre_pieces = plateau[i];
         for (int j = 0; j < CODAGE_NB_BITS; j++) {
@@ -110,37 +110,42 @@ void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][
     }
 }
 
-// Fonction qui reçoit la somme des nombres de * (1)
+// Fonction qui calcule les sommes des valeurs binaires de chaque colonne de la matrice
 void sommes_mat_binaire(const int matrice[][CODAGE_NB_BITS], int nb_lignes, int sommes[])
 {
+    // Pour toutes les colonnes inférieur au 8 bits max de codage des objets
     for (int colonne = 0; colonne < CODAGE_NB_BITS; colonne++)
     {
+        // Pour toutes les lignes inférieur au nb de lignes dans la matrice
         for (int ligne = 0; ligne < nb_lignes; ligne++)
         {
+            // Somme des valeurs binaires
             sommes[colonne] += matrice[ligne][colonne];
         }
     }
 }
 
-// Fonction qui, avec tableau des sommes, détermine les premiers impaires du tableau
+// Fonction qui détermine les premiers impaires du tableau (avec le tableau des sommes)
 int position_premier_impaire(const int tab[])
 {
+    // Modulo pour savoir si le modulo est égal à 1
     int modulo;
+    // Valeurs du tableau
     int i;
 
-    while (modulo != 1)
-    {
-        for (i = 0; i < tab; i++)
-        {
+    // Tant que modulo n'est pas égal à 1
+    while (modulo != 1){
+        // Pour tout les éléments du tableau
+        for (i = 0; i < tab; i++){
             modulo = tab[i] % 2;
         }
     }
-    if (modulo == 1)
-    {
+    // Si modulo = 1, retourne la valeur
+    if (modulo == 1){
         return i;
     }
-    else (tab[i] == 0)
-    {
+    // Si modulo = 0, retourne -1
+    else if (tab[i] == 0){
         return -1;
     }
 }
