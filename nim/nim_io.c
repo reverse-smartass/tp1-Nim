@@ -78,8 +78,7 @@ static int choisir_colonne(int plateau[], int nb_colonnes)
         if (input == 0 || input == 224){
             input = _getch();
             
-            switch (input)
-            {
+            switch (input){
             case (75):
                 choix = (choix - 1) < 0 ? choix = (nb_colonnes - 1) : choix--;
                 break;
@@ -99,17 +98,20 @@ void tour_humain(int plateau[], int nb_colonnes)
 {
     // Appel de la fonction qui choisit une colonne
     int choix = choisir_colonne(plateau, nb_colonnes);
+
     // Appel de la fonction qui choisit le nombre de pièces à retirer dans la colonne
     int nb_pieces = lire_entier(1, plateau[choix]);
-    // Appel
+
+    // Appel de la fonction qui joue le tour
     int result = nim_jouer_tour(plateau, nb_colonnes, choix, nb_pieces);
     plateau_supprimer_colonne(plateau, nb_colonnes, nb_pieces);
-    // Call to the function that update the plateau
+
+    // Appel à la fonction qui mets à jour le plateau (avec plateau_defragmenter(plateau,nb))
     int d = plateau_defragmenter(plateau,nb_colonnes);
     nb_colonnes -= d;
     plateau_afficher(plateau, nb_colonnes, choix);
-
 }
+
 void tour_ia(int plateau[], int nb_colonnes, double difficulte)
 {
 	int choix_colonne = 0;
@@ -139,11 +141,13 @@ void tour_ia(int plateau[], int nb_colonnes, double difficulte)
 }
 
 void demarrer_jeu(int niveau) {
+
     int plateau[PLATEAU_MAX_COLONNES];
-    int nb_colonnes; 
-    nb_colonnes = lire_entier(2,20);
+    int nb_colonnes = lire_entier(2,20); 
+
     plateau_init(plateau, nb_colonnes);
-    while(nb_colonnes>0){
+
+    while(nb_colonnes > 0) {
         tour_humain(plateau, nb_colonnes);
         tour_ia();
         plateau_defragmenter(plateau, nb_colonnes, 0);        //Appel à la fonction plateau_defragmenter pour défragmenter le plateau (board's update)

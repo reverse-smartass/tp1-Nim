@@ -1,8 +1,10 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
+/* Le nombre maximum de bits utilisés pour le codage des objets */
 #define CODAGE_NB_BITS 8
+
 /*******************************************************************************/
 /*                   D�CLARATION DES FONCTIONS PUBLIQUES                       */
 /*******************************************************************************/
