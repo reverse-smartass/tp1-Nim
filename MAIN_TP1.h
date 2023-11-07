@@ -1,6 +1,6 @@
 /******************************************************************
-   Par  :   Fazil Boudjerada    (lien-vers-le-compte-GitHub-1)
-        :   Duc Minh Nguyen     (lien-vers-le-compte-GitHub-2)
+   Par  :   Fazil Boudjerada    (https://github.com/Pokefaz)
+        :   Duc Minh Nguyen     (https://github.com/reverse-smartass)
    Date :   12 novembre 2023
 
    Ce projet consiste à créer une implémentation du jeu de Nim en
@@ -9,6 +9,8 @@
    en ligne de commande.
 *******************************************************************/
 
+
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <nim_io.h>
 #include <winconsole.h>

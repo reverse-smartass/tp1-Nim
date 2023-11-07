@@ -48,6 +48,7 @@ int plateau_defragmenter(int plateau[], int nb_colonnes)
 
     // Pour toutes les colonnes inférieur au nombre de colonnes maximum (5)
     for (int i = 0; i < nb_colonnes; i++) {
+        
         // Si colonne = 0, supprimer la colonne (plateau_supprimer_colonne)
         if (plateau[i] == 0) {
             plateau_supprimer_colonne(plateau, nb_colonnes, plateau[i]);
@@ -114,11 +115,9 @@ void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][
 void sommes_mat_binaire(const int matrice[][CODAGE_NB_BITS], int nb_lignes, int sommes[])
 {
     // Pour toutes les colonnes inférieur au 8 bits max de codage des objets
-    for (int colonne = 0; colonne < CODAGE_NB_BITS; colonne++)
-    {
+    for (int colonne = 0; colonne < CODAGE_NB_BITS; colonne++){
         // Pour toutes les lignes inférieur au nb de lignes dans la matrice
-        for (int ligne = 0; ligne < nb_lignes; ligne++)
-        {
+        for (int ligne = 0; ligne < nb_lignes; ligne++){
             // Somme des valeurs binaires
             sommes[colonne] += matrice[ligne][colonne];
         }
