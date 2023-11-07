@@ -82,9 +82,6 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_c
         // If an error occurs, set both references to -1.
         // Your implementation should adhere to the rules of the Nim game.
     }
-    else{
-        EXIT_SUCCESS;
-    }
 }
 
 // Fonction reçoit le plateau des valeurs pour remplir la matrice binaire (nb binaire)
