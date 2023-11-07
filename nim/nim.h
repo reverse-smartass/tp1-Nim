@@ -1,7 +1,9 @@
 /*******************************************************************************/
 /*  NIM.H                                                                      */
-/*  Ce module contient les fonctions nec�ssaires � l'impl�mantation du jeu NIM */
+/*  Ce module contient les fonctions nécessaires à l'implémantation du jeu NIM */
 /*******************************************************************************/
+
+
 #ifndef MANIP_PLATEAU_H_
 #define MANIP_PLATEAU_H_
 
@@ -23,8 +25,9 @@
 /* L'affirmation si la contrainte n'est pas respectée */
 #define FALSE  0
 
+
 /*******************************************************************************/
-/*                   D�CLARATION DES FONCTIONS PUBLIQUES                       */
+/*                   DÉCLARATION DES FONCTIONS PUBLIQUES                       */
 /*******************************************************************************/
 
 
@@ -34,11 +37,6 @@ void plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_supprim
 int plateau_defragmenter(int plateau[], int nb_colonnes);
 void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int * choix_colonne, int * choix_nb_pieces);
 void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int * choix_colonne, int * choix_nb_pieces); 
-
-
-
-
-
 
 
 #endif
