@@ -12,17 +12,23 @@ void plateau_init(int plateau[], int nb_colonnes)
     }
 }
 
+// 
 int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces)
 {
     //bool truefalse = FALSE;
+    gotoxy(0, 6);
 
-    // Si le nb_pieces est inférieur ou égal au nombre de pièce dans le jeu et nb_pieces est un nombre entier
+    system("cls");
+
+    nb_colonnes = plateau_defragmenter(plateau, nb_colonnes);
+    plateau[colonne] -= nb_pieces;
+
+    // Si le nombre de pièce choisi est supérieur au nombre de pièce dans la colonne choisie et que le nombre de pièce choisi est positif
     if (nb_pieces <= plateau[colonne] && nb_pieces >= 0) {
-        // retour TRUE (1) au jeu
+        //return plateau[colonne] - nb_pieces;
         return TRUE;
     }
     else {
-        // Aussi non, retour FALSE (0) au jeu
         return FALSE;
     }
 }
