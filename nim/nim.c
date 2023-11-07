@@ -1,5 +1,4 @@
 
-#include "MAIN_TP1.h"
 #include "nim_io.h"
 #include "codage_numerique.h"
 

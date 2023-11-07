@@ -28,26 +28,10 @@
 
 #define MANIP_PLATEAU_H_
 
-/* Le nombre maximum de pièces pour chaque colonne du jeu */
-#define PLATEAU_MAX_PIECES 35
-
-/* Le nombre minimum de colonnes pour le plateau de jeu */
-#define PLATEAU_MIN_COLONNES 2
-
-/* Le nombre maximum de colonnes pour le plateau de jeu */
-#define PLATEAU_MAX_COLONNES 20
-
-/* L'affirmation si la contrainte est respectée */
-#define TRUE   1
-
-/* L'affirmation si la contrainte n'est pas respectée */
-#define FALSE  0
-
 /* Le nombre maximum de bits utilisés pour le codage des objets */
 #define CODAGE_NB_BITS 8
 
-/*  */
-#define EPS_DOUBLE 0.00000001
+/* #define EPS_DOUBLE 0.00000001 */
 
 /* Valeur ASCII de la touche "flèche gauche" */
 #define FLECHE_GAUCHE 75

@@ -1,5 +1,4 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include "MAIN_TP1.h"
 #include "WinConsole.H"
 #include "nim_io.h"
 #include <conio.h>
@@ -98,10 +97,11 @@ static int choisir_colonne(int plateau[], int nb_colonnes)
 
 void tour_humain(int plateau[], int nb_colonnes)
 {
-    // Call to the function that choose a column
+    // Appel de la fonction qui choisit une colonne
     int choix = choisir_colonne(plateau, nb_colonnes);
-    // Call to the function that remove pieces from the chosen column
+    // Appel de la fonction qui choisit le nombre de pièces à retirer dans la colonne
     int nb_pieces = lire_entier(1, plateau[choix]);
+    // Appel
     int result = nim_jouer_tour(plateau, nb_colonnes, choix, nb_pieces);
     plateau_supprimer_colonne(plateau, nb_colonnes, nb_pieces);
     // Call to the function that update the plateau

@@ -8,9 +8,19 @@
 #include "codage_numerique.h"
 #include "m_distributions.h"
 
-#define PLATEAU_MAX_COLONNES 20		//Nombre maximal de colonnes sur le plateau
-#define PLATEAU_MAX_PIECES 35		//Nombre maximal de pi�ces par colonne
+/* Le nombre maximum de pièces pour chaque colonne du jeu */
+#define PLATEAU_MAX_PIECES 35
+
+/* Le nombre minimum de colonnes pour le plateau de jeu */
+#define PLATEAU_MIN_COLONNES 2
+
+/* Le nombre maximum de colonnes pour le plateau de jeu */
+#define PLATEAU_MAX_COLONNES 20
+
+/* L'affirmation si la contrainte est respectée */
 #define TRUE   1
+
+/* L'affirmation si la contrainte n'est pas respectée */
 #define FALSE  0
 
 /*******************************************************************************/

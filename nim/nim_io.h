@@ -3,6 +3,15 @@
 #include "nim.h"
 #include "winconsole.h"
 
+/* Le nombre maximum de bits utilisés pour le codage des objets */
+#define CODAGE_NB_BITS 8
+
+/* Valeur ASCII de la touche "flèche gauche" */
+#define FLECHE_GAUCHE 75
+
+/* Valeur ASCII de la touche "flèche droite" */
+#define FLECHE_DROITE 77
+
 /*******************************************************************************/
 /*                   D�CLARATION DES FONCTIONS PUBLIQUES                       */
 /*******************************************************************************/
