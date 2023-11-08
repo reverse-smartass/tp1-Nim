@@ -125,11 +125,11 @@ void tour_ia(int plateau[], int nb_colonnes, double difficulte)
 
 	switch (difficulte){
 	case FACILE: nim_choix_ia_aleatoire; break;
-	case MOYEN: moitier; break;
+	case MOYEN: double md_rand(void); break;
 	case DIFFICILE: nim_choix_ia; break;
 	case QUITTER: EXIT_SUCCESS; break;
-
-		moitier = rand() % 2;
+		/*
+        moitier = rand() % 2;
 
 		if (moitier == 1) {
 			nim_choix_ia_aleatoire;
@@ -137,6 +137,8 @@ void tour_ia(int plateau[], int nb_colonnes, double difficulte)
 		else if (moitier == 0) {
 			nim_choix_ia;
 		}
+        */
+       if ()
 	}
 }
 
