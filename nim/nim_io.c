@@ -112,34 +112,24 @@ void tour_humain(int plateau[], int nb_colonnes)
     plateau_afficher(plateau, nb_colonnes, choix);
 }
 
+// Fonction qui permet de jouer un tour de l'ordinateur
 void tour_ia(int plateau[], int nb_colonnes, double difficulte)
 {
 	int choix_colonne = 0;
 	int choix_nb_pieces = 0;
 
+    // Appel de la fonction qui configure le niveau de difficulté
 	nim_choix_ia(plateau, nb_colonnes, difficulte, &choix_colonne, &choix_nb_pieces);
 
 	int result = nim_jouer_tour(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
 
-	int moitier;
-
 	switch (difficulte){
 	case FACILE: nim_choix_ia_aleatoire; break;
-	case MOYEN: double md_rand(void); break;
+	case MOYEN: double md_rand(void); break;        //Si =1, alors choix_ia_aleatoire, sinon choix_ia
 	case DIFFICILE: nim_choix_ia; break;
 	case QUITTER: EXIT_SUCCESS; break;
-		/*
-        moitier = rand() % 2;
-
-		if (moitier == 1) {
-			nim_choix_ia_aleatoire;
-		}
-		else if (moitier == 0) {
-			nim_choix_ia;
-		}
-        */
-       if ()
 	}
+
 }
 
 void demarrer_jeu(int niveau) {

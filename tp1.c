@@ -12,7 +12,6 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
-#include "nim.h"
 #include "nim_io.h"
 #include "winconsole.h"
 #include "m_distributions.h"
@@ -20,6 +19,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <conio.h>
 
 
 /******************************************************************
