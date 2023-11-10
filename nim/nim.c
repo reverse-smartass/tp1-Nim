@@ -76,13 +76,11 @@ void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int* choix_col
 void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_colonne, int* choix_nb_pieces)
 {
     // Si niveau = 1, utiliser la fonction nim_choix_ia_aleatoire
-    if (niveau == FACILE) {
-        nim_choix_ia_aleatoire(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
-    }
-
-    // Si niveau = 2-3, activaion de l'algorithme de l'ordinateur à 50% et 100%
-    else if (niveau == 2){
-       
+    switch (niveau){
+	case FACILE: difficulte = FACILE; break;
+	case MOYEN: double md_rand(void); break;        //Si =1, alors choix_ia_aleatoire, sinon choix_ia
+	case DIFFICILE: nim_choix_ia; break;
+	case QUITTER: EXIT_SUCCESS; break;
     }
 }
 

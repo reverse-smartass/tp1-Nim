@@ -112,7 +112,7 @@ void tour_humain(int plateau[], int nb_colonnes)
     plateau_afficher(plateau, nb_colonnes, choix);
 }
 
-// Fonction qui permet de jouer un tour de l'ordinateur
+// Fonction qui permet de jouer un tour de l'ordinateur (selon le niveau de difficulté)
 void tour_ia(int plateau[], int nb_colonnes, double difficulte)
 {
 	int choix_colonne = 0;
