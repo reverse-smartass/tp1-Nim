@@ -129,7 +129,6 @@ void tour_ia(int plateau[], int nb_colonnes, double difficulte)
 	case DIFFICILE: nim_choix_ia; break;
 	case QUITTER: EXIT_SUCCESS; break;
 	}
-
 }
 
 void demarrer_jeu(int niveau) {

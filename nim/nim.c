@@ -75,13 +75,7 @@ void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int* choix_col
 // Fonction qui détermine le choix de jeu de l'ordinateur (en fonction du niveau de difficulté)
 void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_colonne, int* choix_nb_pieces)
 {
-    // Si niveau = 1, utiliser la fonction nim_choix_ia_aleatoire
-    switch (niveau){
-	case FACILE: difficulte = FACILE; break;
-	case MOYEN: double md_rand(void); break;        //Si =1, alors choix_ia_aleatoire, sinon choix_ia
-	case DIFFICILE: nim_choix_ia; break;
-	case QUITTER: EXIT_SUCCESS; break;
-    }
+
 }
 
 void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][CODAGE_NB_BITS])
@@ -132,10 +126,4 @@ int position_premier_impaire(const int tab[])
     else if (tab[i] == 0){
         return -1;
     }
-}
-
-// NOT FOR TODAY (31/11/2023)
-void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int * choix_colonne, int * choix_nb_pieces)
-{
-    // Move it to the first nim_choix_ia
 }
