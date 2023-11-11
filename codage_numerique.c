@@ -15,12 +15,14 @@ int inverser_tab_bits(int tab_bits[], int nb_bits){
     return nb_bits>8? 0 : 1;
 }
 
+// Fonction qui permet la conversion de nombres décimaux en nombres binaires
 int codage_dec2bin(int nombre, int resultat[]){
 
     int i;
     int holder = nombre;
     int powe;
 
+    // Pour la valeur décimale, division par 2 et sauvegarde de son modulo jusqu'à une valeur nulle
     for(i = CODAGE_NB_BITS-1; i > 0; i--){
         powe = pow(2,i); 
         resultat[i] = holder/pow(2,i);

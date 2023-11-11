@@ -4,7 +4,7 @@
 #include <conio.h>
 
 
-// Fonction qui lit un entier entre min et max
+// Fonction qui demande un entier entre max et min
 int lire_entier(int min, int max)
 {
     int i;
@@ -30,19 +30,20 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select)
     // Séparation de l'espace de texte (Affichage du plateau après les 5 premières lignes)
     gotoxy(0,5);
 
-    //print axe Y
+    // Affichage de toutes les valeurs de colonne dans l'axe des y
     for(int k = PLATEAU_MAX_COLONNES; k >= 1; k--){
         printf("%i\n\n", k);
     }
 
-    //print axe X 
+    // Affichage de toutes les valeurs de ligne dans l'axe des x
     int posY = posy + 4;
     for(int l = 0; l < nb_colonnes; l++){
         gotoxy(posxtmp, posY);
         printf("%i", l);
         posxtmp += 3;
     }
-    //print colonnes de *
+
+    // Affichage des colonnes de *
     for(int i = 0; i < nb_colonnes; i++){
         int posx = i * 3 + 2;
         gotoxy(posx, posy);
@@ -52,11 +53,12 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select)
         }
     }
 
-    //positionner a la colonne choisie
+    // Affichage des couleurs durant la prise de décision d'une colonne à selectionner
     gotoxy(YColonneChoisie, posY);
     textbackground(RED);
     gotoxy(YColonneChoisie, posy);
     
+    // Pour chaque changement de selection de colonne, on change l'affichage pour la couleur ROUGE
     for(j = 1; j <= plateau[col_select]; j++){
         textbackground(RED);
         gotoxy(YColonneChoisie,posy-j);
@@ -94,15 +96,16 @@ static int choisir_colonne(int plateau[], int nb_colonnes)
     return choix;
 }
 
+// Fonction qui permet de jouer un tour de l'humain
 void tour_humain(int plateau[], int nb_colonnes)
 {
-    // Appel de la fonction qui choisit une colonne
+    // Appel à la fonction qui choisit la colonne sélectionné par l'humain
     int choix = choisir_colonne(plateau, nb_colonnes);
 
-    // Appel de la fonction qui choisit le nombre de pièces à retirer dans la colonne
+    // Appel à la fonction qui choisit le nombre de pièces à retirer dans la colonne
     int nb_pieces = lire_entier(1, plateau[choix]);
 
-    // Appel de la fonction qui joue le tour
+    // Appel à la fonction qui joue le tour
     int result = nim_jouer_tour(plateau, nb_colonnes, choix, nb_pieces);
     plateau_supprimer_colonne(plateau, nb_colonnes, nb_pieces);
 
@@ -118,7 +121,7 @@ void tour_ia(int plateau[], int nb_colonnes, double difficulte)
 	int choix_colonne = 0;
 	int choix_nb_pieces = 0;
 
-    // Appel de la fonction qui configure le niveau de difficulté
+    // Appel à la fonction qui effectue les choix intelligents décidées par l'ordinateur
 	nim_choix_ia(plateau, nb_colonnes, difficulte, &choix_colonne, &choix_nb_pieces);
 
 	int result = nim_jouer_tour(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
@@ -131,6 +134,7 @@ void tour_ia(int plateau[], int nb_colonnes, double difficulte)
 	}
 }
 
+// Fonction qui permet le démarrage de l'interface graphique et de l'exécution du jeu
 void demarrer_jeu(int niveau) {
 
     int plateau[PLATEAU_MAX_COLONNES];
