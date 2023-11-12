@@ -75,7 +75,7 @@ void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int* choix_col
 // Fonction qui détermine le choix de jeu de l'ordinateur (en fonction du niveau de difficulté)
 void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_colonne, int* choix_nb_pieces)
 {
-
+    
 }
 
 void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][CODAGE_NB_BITS])
