@@ -2,7 +2,7 @@
 #include "WinConsole.H"
 #include "nim_io.h"
 #include <conio.h>
-#define FFLUSH while(getchar() != '\n') 
+#define FFLUSH while(getchar() != '\n')
 
 // Fonction qui lit un entier entre min et max
 int lire_entier(int min, int max)
@@ -12,8 +12,8 @@ int lire_entier(int min, int max)
     printf("Saisir un nombre entier entre %i et %i: ", min, max);
     //FFLUSH;
     scanf("%i", &j);
-    
-    while(j > max || j < min){
+
+    while (j > max || j < min) {
         printf("Erreur! Saisir un nombre entier entre %i et %i: ", min, max);
         //FFLUSH;
         scanf("%i", &j);
@@ -26,29 +26,29 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select)
 {
     int posy = PLATEAU_MAX_PIECES + 5;
     int posxtmp = 4;
-    
+
 
     // Séparation de l'espace de texte (Affichage du plateau après les 5 premières lignes)
-    gotoxy(0,6);
+    gotoxy(0, 6);
 
-    
+
 
     //print axe Y
-    for(int k = PLATEAU_MAX_PIECES; k >= 1; k--){
+    for (int k = PLATEAU_MAX_PIECES; k >= 1; k--) {
         printf("%i\n", k);
     }
 
-    //print axe X 
+    //print axe X
     int posY = posy + 2;
-    for(int l = 0; l < nb_colonnes; l++){
+    for (int l = 0; l < nb_colonnes; l++) {
         gotoxy(posxtmp, posY);
         printf("%i", l);
         posxtmp += 3;
     }
     //print colonnes de *
-    
-    for(int i = 0; i < nb_colonnes; i++){
-        int posx = i*3 + 4;
+
+    for (int i = 0; i < nb_colonnes; i++) {
+        int posx = i * 3 + 4;
 
         if (i == col_select) {
             textbackground(RED);
@@ -61,7 +61,7 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select)
 
         gotoxy(posx, posy);
 
-        for(int j = 0; j <= plateau[i]; j++){
+        for (int j = 0; j <= plateau[i]; j++) {
             if (plateau[i] > 0) {
                 printf("*");
                 gotoxy(posx, posy - j);
@@ -70,7 +70,7 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select)
     }
 
     gotoxy(0, posY + 3);
-    
+
 
     //positionner a la colonne choisie
 
@@ -80,12 +80,12 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select)
     gotoxy(colselX, posY);
     printf("%i", col_select);
     gotoxy(colselX, posy);
-    
+
     for(j = 1; j <= plateau[col_select]; j++){
         printf("*");
         gotoxy(colselX,posy-j);
     }*/
-    
+
     gotoxy(0, posy + 3);
     textbackground(BLACK);
 }
@@ -94,19 +94,19 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select)
 static int choisir_colonne(int plateau[], int nb_colonnes)
 {
     int colonne = 0;
-    unsigned char input ;
+    unsigned char input;
     static int choix = 0;
 
     plateau_afficher(plateau, nb_colonnes, choix);
 
     input = 71;
-    
-    while (input != 13){
+
+    while (input != 13) {
         input = _getch();
 
-        if (input == 0 || input == 224){
+        if (input == 0 || input == 224) {
             input = _getch();
-            
+
             switch (input)
             {
             case (75):
@@ -136,16 +136,16 @@ void tour_humain(int plateau[], int nb_colonnes)
 
 
     // Call to the function that choose a column
-    int choix = choisir_colonne(plateau, plateau_defragmenter(plateau,nb_colonnes));
+    int choix = choisir_colonne(plateau, plateau_defragmenter(plateau, nb_colonnes));
 
     // Call to the function that remove pieces from the chosen column
     int nb_pieces = lire_entier(1, plateau[choix]);
-   
+
     //plateau[choix] -= nb_pieces;
 
     int result = nim_jouer_tour(plateau, nb_colonnes, choix, nb_pieces);
 
-    
+
     printf("%i\n", nb_colonnes);
     for (int i = 0; i < nb_colonnes; i++) {
         printf("%i ", plateau[i]);
@@ -175,7 +175,7 @@ void demarrer_jeu(int niveau) {
     static int status = 0;
 
     plateau_init(plateau, nb_colonnes);
-    while(plateau_defragmenter(plateau, nb_colonnes) != NULL){
+    while (plateau_defragmenter(plateau, nb_colonnes) != NULL) {
         if (status = 0) {
             tour_humain(plateau, nb_colonnes);
             status++;
@@ -184,6 +184,6 @@ void demarrer_jeu(int niveau) {
             tour_ia(plateau, nb_colonnes, niveau);
             status = 0;
         }
-        
-    }    
+
+    }
 }
