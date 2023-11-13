@@ -12,7 +12,7 @@ void plateau_init(int plateau[], int nb_colonnes)
     }
 }
 
-// 
+// Fonction qui permet de jouer le tour de l'humain
 int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces)
 {
     //bool truefalse = FALSE;
@@ -33,7 +33,7 @@ int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces)
     }
 }
 
-// Fonction qui supprime les pieces choisies dans la colonne choisie
+// Fonction qui supprime une colonne nulle
 void plateau_supprimer_colonne(int plateau[], int nb_colonnes, int col_a_supprimer)
 {
     // Pour toutes les colonnes entre la colonne choisie et la colonne juste avant la colonnes maximum (5)

@@ -15,7 +15,10 @@ enum difficulte {test, FACILE, MOYEN, DIFFICILE, QUITTER};
 /*******************************************************************************/
 /*                   D�CLARATION DES FONCTIONS PUBLIQUES                       */
 /*******************************************************************************/
-
+/*
+LIRE_ENTIER
+codé par 
+*/
 int lire_entier(int min, int max);
 void plateau_afficher(const int plateau[], int nb_colonnes, int col_select);
 static int choisir_colonne(int plateau[], int nb_colonnes);
