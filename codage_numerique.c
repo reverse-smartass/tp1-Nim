@@ -1,5 +1,6 @@
 #include"codage_numerique.h"
 
+// Pour l'affichage des bits dans le bonne ordre (valeur binaire switcher)
 int inverser_tab_bits(int tab_bits[], int nb_bits){
 
        int time = nb_bits/2;
@@ -14,13 +15,15 @@ int inverser_tab_bits(int tab_bits[], int nb_bits){
     return nb_bits>CODAGE_NB_BITS ? 0 : 1;
 }
 
-
-int codage_dec2bin(int nombre, int resultat[]){
+// Fonction qui permet la conversion de nombres décimaux en nombres binaires
+int codage_dec2bin(int nombre, int resultat[]) {
 
     int i;
     int holder = nombre;
     int powe;
     int digit = 0;
+
+    // Tant que la valeur est positive, on divise par deux et on augmente le compteur de digits
 
     while (nombre > 0) {
         nombre /= 2;
@@ -43,10 +46,12 @@ int codage_dec2bin(int nombre, int resultat[]){
             holder -= powe;
         }
     }
-    
+
     return digit;
 }
 
+
+// Fonction qui permet l'affichage des bits dans le bonne ordre (valeur binaire switcher)
 void afficher_tab_bits(const int tab_bits[], int nb_bits) {
     int i = 0;
 
@@ -55,6 +60,7 @@ void afficher_tab_bits(const int tab_bits[], int nb_bits) {
     }
     printf("\n");
 }
+// Fonction codage_dec2bin utilisant tab_bits[] pour stocker les valeurs binaires
 int codage_bin2dec(const int tab_bits[]) {
 
     int i = 0;
@@ -65,11 +71,10 @@ int codage_bin2dec(const int tab_bits[]) {
         i++;
     }
 
+    // Boucle qui permet de calculer la somme des bits
     for (j = i; j < CODAGE_NB_BITS; j++) {
         somme += tab_bits[j] * pow(2, (CODAGE_NB_BITS - 1) - j);
         //printf("%i ", somme);
     }
     return somme;
 }
-
-

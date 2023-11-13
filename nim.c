@@ -123,16 +123,7 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_c
 // matrice = adresse au tableau de valeur, matrice[] = adresse à la ligne indiqué
 void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][CODAGE_NB_BITS])
 {
-    /*    int pos = position_premier_impaire;
-        // Pour toutes les colonnes inférieur au nb de colonne dans le plateau
-        for (int i = 0; i < nb_colonnes; i++)
-        {
-            // Construction de la matrice avec les valeurs décimales traduit du binaire
-            codage_dec2bin(plateau[pos], matrice[pos]);
-        }
-        afficher_tab_bits(tab_bits[], nb_bits);
-    */
-    // Pour toutes les colonnes inférieur au nb de colonne dans le plateau
+    
 
     int d = 0;
     //int temp[CODAGE_NB_BITS];
@@ -141,8 +132,8 @@ void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][
         d = codage_dec2bin(plateau[i], matrice[i]);
        
         for (int j = 0; j < CODAGE_NB_BITS; j++) {
-            //matrice[i][j] = 1;
-            printf("%i ", matrice[i][j]);
+            
+            //printf("%i ", matrice[i][j]);
         }
         printf("\n");
     }
@@ -184,5 +175,5 @@ int position_premier_impaire(const int tab[])
         return -1;
     }*/
 
-    return modulo == 1 ? 1 : -1;
+    return (modulo == 1 ? 1 : -1);
 }
