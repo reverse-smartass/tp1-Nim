@@ -2,20 +2,56 @@
 /*  NIM.H                                                                      */
 /*  Ce module contient les fonctions nec�ssaires � l'impl�mantation du jeu NIM */
 /*******************************************************************************/
+
+/*******************************************************************************
+   Par  :   Fazil Boudjerada
+        :   Duc Minh Nguyen
+   Date :   12 novembre 2023
+
+   Ce programme inclut des fonctions qui permettent l'initialisation du plateau,
+   ainsi que le stockage de nombre de ligne et colonne dans les tableaux, la
+   défragmentation et mise à jours du plateau du jeu et d'autre fonctionnalité
+   relié à la gestion du système du jeu, sans afficher de symbole ou valeurs.
+   On y retrouve les sous-programmes suivants :
+    - plateau_init
+    - nim_jouer_tour
+    - plateau_supprimer_colonne
+    - plateau_defragmenter
+    - nim_choix_ia_aleatoire
+    - nim_choix_ia
+    - construire_mat_binaire
+    - sommes_mat_binaire
+    - position_premier_impaire
+********************************************************************************/
+
 #ifndef MANIP_PLATEAU_H_
 #define MANIP_PLATEAU_H_
 
 #include "codage_numerique.h"
 #include "m_distributions.h"
 
-#define PLATEAU_MAX_COLONNES 20		//Nombre maximal de colonnes sur le plateau
-#define PLATEAU_MAX_PIECES 35		//Nombre maximal de pi�ces par colonne
+/*******************************************************************************/
+/*                                CONSTANTES                                   */
+/*******************************************************************************/
+
+
+/* Nombre maximal de colonne dans le plateau de jeu */
+#define PLATEAU_MAX_COLONNES 20
+
+/* Nombre maximal de pièce par colonne dans un jeu */
+#define PLATEAU_MAX_PIECES 35
+
+/* Constante de validation de l'énoncé */
 #define TRUE   1
+
+/* Constante d'invalidation de l'énoncé */
 #define FALSE  0
 
+
 /*******************************************************************************/
-/*                   D�CLARATION DES FONCTIONS PUBLIQUES                       */
+/*                   DÉCLARATION DES FONCTIONS PUBLIQUES                       */
 /*******************************************************************************/
+
 /*
 PLATEAU_INIT
 Codée par Fazil Boudjerada
@@ -275,14 +311,6 @@ VALEUR DE RETOUR : Aucune.
 EXEMPLE D'APPEL : Aucune.
 */
 int position_premier_impaire(const int tab[]);
-
-
-
-
-
-
-
-
 
 
 #endif

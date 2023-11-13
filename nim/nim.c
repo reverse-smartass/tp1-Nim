@@ -1,6 +1,5 @@
 
-#include "nim_io.h"
-#include "codage_numerique.h"
+#include "nim.h"
 
 // Fonction qui sélectionne un nombre aléatoire entre 0 et le nombre de pièces maximales pour chaque colonnes
 void plateau_init(int plateau[], int nb_colonnes)

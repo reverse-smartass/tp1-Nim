@@ -1,8 +1,5 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include "WinConsole.H"
-#include "nim_io.h"
-//#include <conio.h>
 
+#include "nim_io.h"
 
 // Fonction qui demande un entier entre max et min
 int lire_entier(int min, int max)
