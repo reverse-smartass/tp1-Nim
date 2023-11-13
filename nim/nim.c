@@ -98,7 +98,7 @@ void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][
     int d;
     // Pour toutes les colonnes inférieur au nb de colonne dans le plateau
     for (int i = 0; i < nb_colonnes; i++) {
-        d = codage_bin2dec(plateau[i], matrice[i]);
+        d = codage_bin2dec(plateau[i], matrice[i][CODAGE_NB_BITS]);
         for (int j = 0; j < CODAGE_NB_BITS; j++) {
             // Remplir la matrice en utilisant la représentation binaire du nombre de pièces
             matrice[i][j] = (plateau[i] > j) & 1;

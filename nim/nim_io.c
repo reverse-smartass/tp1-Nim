@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "WinConsole.H"
 #include "nim_io.h"
-#include <conio.h>
+//#include <conio.h>
 
 
 // Fonction qui demande un entier entre max et min
@@ -116,13 +116,13 @@ void tour_humain(int plateau[], int nb_colonnes)
 }
 
 // Fonction qui permet de jouer un tour de l'ordinateur (selon le niveau de difficulté)
-void tour_ia(int plateau[], int nb_colonnes, double difficulte)
+void tour_ia(int plateau[], int nb_colonnes, int difficulte)
 {
 	int choix_colonne = 0;
 	int choix_nb_pieces = 0;
 
     // Appel à la fonction qui effectue les choix intelligents décidées par l'ordinateur
-	nim_choix_ia(plateau, nb_colonnes, difficulte, &choix_colonne, &choix_nb_pieces);
+	//nim_choix_ia(plateau, nb_colonnes, difficulte, &choix_colonne, &choix_nb_pieces);
 
 	int result = nim_jouer_tour(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
 
@@ -144,8 +144,8 @@ void demarrer_jeu(int niveau) {
 
     while(nb_colonnes > 0) {
         tour_humain(plateau, nb_colonnes);
-        tour_ia();
+        tour_ia(plateau, nb_colonnes, difficulte);
         //Appel à la fonction plateau_defragmenter pour défragmenter le plateau (board's update)
-        plateau_defragmenter(plateau, nb_colonnes, 0);
+        plateau_defragmenter(plateau, nb_colonnes);
     }    
 }
