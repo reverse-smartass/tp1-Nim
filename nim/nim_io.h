@@ -10,7 +10,7 @@
 #define FLECHE_DROITE 77
 
 /* Niveau de difficulté du tour de l'ordinateur */
-enum difficulte {-----, FACILE, MOYEN, DIFFICILE, QUITTER};
+enum difficulte {test, FACILE, MOYEN, DIFFICILE, QUITTER};
 
 /*******************************************************************************/
 /*                   D�CLARATION DES FONCTIONS PUBLIQUES                       */
