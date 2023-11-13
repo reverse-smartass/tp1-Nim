@@ -14,13 +14,15 @@
 // Fonction qui sélectionne un nombre aléatoire entre 0 et le nombre de pièces maximales pour chaque colonnes
 void plateau_init(int plateau[], int nb_colonnes)
 {
+    srand(time(NULL));
     // Pour toute les colonnes entre 0 et le nombre de colonnes définit (5)
     for (int i = 0; i < nb_colonnes; i++) {
         // Générateur de nombre aléatoire de pièces entre 0 et PLATEAU_MAX_PIECES
-        plateau[i] = (rand() / ((double)RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);           //Ask the question of if we could leave it that way
+        plateau[i] = (rand() / ((double)RAND_MAX + 1)) * (PLATEAU_MAX_PIECES) + 1;  
+        //printf("%i ", plateau[i]);
     }
+    //printf("\n");
 }
-
 
 
 
@@ -28,6 +30,15 @@ void plateau_init(int plateau[], int nb_colonnes)
 int nim_jouer_tour(int plateau[], int nb_colonnes, int colonne, int nb_pieces)
 {
     //bool truefalse = FALSE;
+    gotoxy(0, 6);
+
+    system("cls");
+
+    
+
+    nb_colonnes = plateau_defragmenter(plateau, nb_colonnes);
+
+    plateau[colonne] -= nb_pieces;
 
     // Si le nombre de pièce choisi est supérieur au nombre de pièce dans la colonne choisie et que le nombre de pièce choisi est positif
     if (nb_pieces <= plateau[colonne] && nb_pieces >= 0) {
@@ -55,19 +66,29 @@ int plateau_defragmenter(int plateau[], int nb_colonnes)
     // Initialisation du compteur de pieces supprimees dans la colonne
     int count = 0;
 
-    // Pour toutes les colonnes entre 0 et le nombre de colonnes définit (5)
+    // Pour toutes les colonnes entre 0 et le nombre de colonnes définit
     for (int i = 0; i < nb_colonnes; i++) {
         if (plateau[i] == 0) {
-            plateau_supprimer_colonne(plateau, nb_colonnes, plateau[i]);
+            plateau_supprimer_colonne(plateau, nb_colonnes, i);
+        }
+    }
+
+    // Now, count the number of non-empty columns
+    for (int i = 0; i < nb_colonnes; i++) {
+        if (plateau[i] > 0) {
             count++;
         }
     }
-    return nb_colonnes - count;
+    return count = 0 ? NULL : count;
 }
+
+
+
 
 // Fonction qui effectue les changements dans le plateau en fonction des choix de l'IA
 void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int* choix_colonne, int* choix_nb_pieces)
 {
+    srand(time(NULL));
     // Générateur de nombre aléatoire de colonnes entre 0 et PLATEAU_MAX_COLONNES
     *choix_colonne = (rand() / ((double)RAND_MAX + 1)) * (PLATEAU_MAX_COLONNES + 1);
     *choix_nb_pieces = (rand() / ((double)RAND_MAX + 1)) * (PLATEAU_MAX_PIECES + 1);
@@ -75,15 +96,22 @@ void nim_choix_ia_aleatoire(const int plateau[], int nb_colonnes, int* choix_col
 
 void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_colonne, int* choix_nb_pieces)
 {
+    int pf = rand() % 2;
+
     if (niveau == 1) {
         // Use random choice function (nim_choix_ia_aleatoire) when niveau is less than 2
         nim_choix_ia_aleatoire(plateau, nb_colonnes, choix_colonne, choix_nb_pieces);
     }
-    else {
+    else if(niveau == 2)
+    {
+        static int status = 0;
         // Implement your intelligent algorithm here
         // Ensure that you set the chosen column and number of pieces in choix_colonne and choix_nb_pieces.
         // If an error occurs, set both references to -1.
         // Your implementation should adhere to the rules of the Nim game.
+    }
+    else if (niveau == 3) {
+
     }
 }
 
@@ -95,26 +123,66 @@ void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int* choix_c
 // matrice = adresse au tableau de valeur, matrice[] = adresse à la ligne indiqué
 void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][CODAGE_NB_BITS])
 {
-    for (int i = 0; i < nb_colonnes; i++)
-    {
-        codage_bin2dec;
+    /*    int pos = position_premier_impaire;
+        // Pour toutes les colonnes inférieur au nb de colonne dans le plateau
+        for (int i = 0; i < nb_colonnes; i++)
+        {
+            // Construction de la matrice avec les valeurs décimales traduit du binaire
+            codage_dec2bin(plateau[pos], matrice[pos]);
+        }
+        afficher_tab_bits(tab_bits[], nb_bits);
+    */
+    // Pour toutes les colonnes inférieur au nb de colonne dans le plateau
+
+    int d = 0;
+    //int temp[CODAGE_NB_BITS];
+    
+    for (int i = 0; i < nb_colonnes; i++) {
+        d = codage_dec2bin(plateau[i], matrice[i]);
+       
+        for (int j = 0; j < CODAGE_NB_BITS; j++) {
+            //matrice[i][j] = 1;
+            printf("%i ", matrice[i][j]);
+        }
+        printf("\n");
     }
 }
 
-// Fonction qui reçoit la somme des nombres de * (1)
+// Fonction qui calcule les sommes des valeurs binaires de chaque colonne de la matrice
 void sommes_mat_binaire(const int matrice[][CODAGE_NB_BITS], int nb_lignes, int sommes[])
 {
-    
+    // Pour toutes les colonnes inférieur au 8 bits max de codage des objets
+    for (int colonne = 0; colonne < CODAGE_NB_BITS; colonne++) {
+        // Pour toutes les lignes inférieur au nb de lignes dans la matrice
+        for (int ligne = 0; ligne < nb_lignes; ligne++) {
+            // Somme des valeurs binaires
+            sommes[colonne] += matrice[ligne][colonne];
+        }
+    }
 }
 
-// Fonction qui, avec tableau des sommes, détermine les premiers impaires du tableau
+// Fonction qui détermine les premiers impaires du tableau (avec le tableau des sommes)
 int position_premier_impaire(const int tab[])
 {
+    // Modulo pour savoir si le modulo est égal à 1
+    int modulo = 0;
+    // Valeurs du tableau
+    int i = 0;
 
-}
+    // Tant que modulo n'est pas égal à 1
+    while(modulo != 1 && i < 8) {
+        // Pour tout les éléments du tableau
+        modulo = tab[i] % 2;
+        i++;   
+    }
+    /* Si modulo = 1, retourne la valeur
+    if (modulo == 1) {
+        return i;
+    }
+    // Si modulo = 0, retourne -1
+    else if (tab[i] == 0) {
+        return -1;
+    }*/
 
-// NOT FOR TODAY (31/11/2023)
-void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int * choix_colonne, int * choix_nb_pieces)
-{
-
+    return modulo == 1 ? 1 : -1;
 }

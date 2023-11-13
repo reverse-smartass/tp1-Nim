@@ -1,57 +1,84 @@
 
-#define PLATEAU_MAX_COLONNES 35
-#include "WinConsole.H"
-#include <stdio.h>
-#include <stdlib.h>
 
-void plateau_afficher(const int plateau[], int nb_colonnes, int col_select);
+#include "WinConsole.H"
+
+#include "nim_io.h"
+
 
 int main(void){
 
-    const int arr[] = {1,2,4,5,6,7};
+    int j = lire_entier(2, 20);
 
-    plateau_afficher(arr, 6, 3);
-}
+    int* arr = malloc(sizeof(int) * j);
 
-void plateau_afficher(const int plateau[], int nb_colonnes, int col_select)
-{
-    int posy = PLATEAU_MAX_COLONNES + 5;
-    int posxtmp = 2;
-    int YColonneChoisie = (2 + col_select * 3);
-    int j;
+    //int arr[6] = { 0,34,6,0,4,0 };
 
-    // Séparation de l'espace de texte (Affichage du plateau après les 5 premières lignes)
-    gotoxy(0,5);
+    plateau_init(arr, j);
 
-    //print axe Y
-    for(int k = PLATEAU_MAX_COLONNES; k >= 1; k--){
-        printf("%i\n\n", k);
+    //plateau_afficher(arr, i, 1);
+
+    //int k = choisir_colonne(arr, i);
+
+    /*while (plateau_defragmenter(arr, j) != NULL) {
+        tour_humain(arr, j);
+        //printf("j= %i\n", j);
+        system("pause");
+    }*/
+
+    for (int i = 0; i < j; i++) {
+        printf("%i ", arr[i]);
+    }
+    printf("\n");
+
+    //int i = plateau_defragmenter(arr, 6);*/ 
+
+    /*int resultat[CODAGE_NB_BITS];
+
+    int i = codage_dec2bin(137, resultat);
+
+    for (int n = 0; n < 8; n++) {
+        printf("%i ", resultat[n]);
+    }
+    printf("\n");
+    system("pause");
+
+    int s = codage_bin2dec(resultat);
+    printf("%i\n", s);
+
+    system("pause");*/
+
+    int** matrice = (int*)malloc(sizeof(int) * j);
+
+    for (int m = 0; m < j; m++) {
+        matrice[m] = malloc(sizeof(int) * CODAGE_NB_BITS);        
     }
 
-    //print axe X 
-    int posY = posy + 4;
-    for(int l = 0; l < nb_colonnes; l++){
-        gotoxy(posxtmp, posY);
-        printf("%i", l);
-        posxtmp += 3;
-    }
-    //print colonnes de *
-    for(int i = 0; i < nb_colonnes; i++){
-        int posx = i * 3 + 2;
-        gotoxy(posx, posy);
-        for(int j = 0; j < plateau[i]; i++){
-            printf("*");
-            gotoxy(posx, posy-2*(j+1));
-        }
-    }
-
-    //positionner a la colonne choisie
-    gotoxy(YColonneChoisie, posY);
-    textbackground(RED);
-    gotoxy(YColonneChoisie, posy);
     
-    for(j = 1; j <= plateau[col_select]; j++){
-        textbackground(RED);
-        gotoxy(YColonneChoisie,posy-j);
-    }
+    construire_mat_binaire(arr, j, matrice);
+    
+
+    
+    
+
+    /*for (int m = 0; m < j; m++) {
+        for (int k = 0; k < CODAGE_NB_BITS; k++) {
+            printf("%i ", matrice[m][k]);
+        }
+        printf("\n");
+    }*/
+
+    
+
+    system("pause");
+
+    
+
+    /*for (int i = 0; i < j; i++) {
+        for (int n = 0; n < CODAGE_NB_BITS; n++) {
+            printf("%i ", matrice[i][n]);
+        }
+    }*/
+    
+    free(arr);
 }
+

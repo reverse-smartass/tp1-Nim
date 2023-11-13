@@ -11,7 +11,7 @@ int inverser_tab_bits(int tab_bits[], int nb_bits){
         tab_bits[i] = tab_bits[finalvalue-i];
         tab_bits[finalvalue-i] = temp;
     }
-    return nb_bits>8? 0 : 1;
+    return nb_bits>CODAGE_NB_BITS ? 0 : 1;
 }
 
 
@@ -19,17 +19,57 @@ int codage_dec2bin(int nombre, int resultat[]){
 
     int i;
     int holder = nombre;
-    for(i = CODAGE_NB_BITS-1; i < 0; i--){
-        int powe = pow(2,i); 
-        resultat[i] = holder/pow(2,i);
-        holder = nombre%powe;
+    int powe;
+    int digit = 0;
+
+    while (nombre > 0) {
+        nombre /= 2;
+        digit++;
+    }
+
+    if (digit > CODAGE_NB_BITS) {
+        return 0;
+    }
+
+    for (i = 0; i < CODAGE_NB_BITS; i++) {
+        resultat[i] = 0;
+    }
+
+    for (i = CODAGE_NB_BITS - digit; i < CODAGE_NB_BITS; i++) {
+
+        powe = pow(2, CODAGE_NB_BITS - 1 - i);
+        resultat[i] = holder / powe;
+        if (resultat[i] == 1) {
+            holder -= powe;
+        }
     }
     
+    return digit;
 }
-void afficher_tab_bits(const int tab_bits[], int nb_bits);
-int codage_bin2dec(const int tab_bits[]);
-void construire_mat_binaire(const int plateau[], int nb_colonnes, int matrice[][CODAGE_NB_BITS]);
-void sommes_mat_binaire(const int matrice[][CODAGE_NB_BITS], int nb_lignes, int sommes[]);
-int position_premier_impaire(const int tab[]);
-void nim_choix_ia(const int plateau[], int nb_colonnes, int niveau, int * choix_colonne, int * choix_nb_pieces); 
+
+void afficher_tab_bits(const int tab_bits[], int nb_bits) {
+    int i = 0;
+
+    for (i = 0; i < nb_bits; i++) {
+        printf("%i ", tab_bits[i]);
+    }
+    printf("\n");
+}
+int codage_bin2dec(const int tab_bits[]) {
+
+    int i = 0;
+    int j;
+    int somme = 0;
+
+    while (tab_bits[i] == 0) {
+        i++;
+    }
+
+    for (j = i; j < CODAGE_NB_BITS; j++) {
+        somme += tab_bits[j] * pow(2, (CODAGE_NB_BITS - 1) - j);
+        //printf("%i ", somme);
+    }
+    return somme;
+}
+
 
