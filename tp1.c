@@ -1,7 +1,7 @@
 /******************************************************************
    Par  :   Fazil Boudjerada    (https://github.com/Pokefaz)
         :   Duc Minh Nguyen     (https://github.com/reverse-smartass)
-   Date :   12 novembre 2023
+   Date :   13 novembre 2023
 
    Ce projet consiste à créer une implémentation du jeu de Nim en
    utilisant le langage de programmation C. Le jeu doit permettre
@@ -19,18 +19,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-//#include <conio.h>
-
-
-/******************************************************************
-                            CONSTANTES
-******************************************************************/
+#include <conio.h>
 
 
 /******************************************************************
 ******************************************************************/
 
-int main (niveau)
+int main (void)
 {
-   demarrer_jeu(niveau);
+   demarrer_jeu(1);
 }

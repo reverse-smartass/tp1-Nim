@@ -41,6 +41,9 @@
 /* Nombre maximal de pièce par colonne dans un jeu */
 #define PLATEAU_MAX_PIECES 35
 
+/* Nombre minimum de colonnes pour le plateau de jeu */
+#define PLATEAU_MIN_COLONNES 2
+
 /* Constante de validation de l'énoncé */
 #define TRUE   1
 
