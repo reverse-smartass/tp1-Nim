@@ -24,7 +24,7 @@ void plateau_afficher(const int plateau[], int nb_colonnes, int col_select)
     int YColonneChoisie = (2 + col_select * 3);
     int j;
 
-    // Séparation de l'espace de texte (Affichage du plateau après les 5 premières lignes)
+    // Affichage du plateau après les 5 premières lignes)
     gotoxy(0,5);
 
     // Affichage de toutes les valeurs de colonne dans l'axe des y
@@ -78,10 +78,10 @@ static int choisir_colonne(int plateau[], int nb_colonnes)
             input = _getch();
             
             switch (input){
-            case (75):
+            case (FLECHE_GAUCHE):
                 choix = (choix - 1) < 0 ? choix = (nb_colonnes - 1) : choix--;
                 break;
-            case (77):
+            case (FLECHE_DROITE):
                 choix = (choix + 1) > (nb_colonnes - 1) ? choix = 0 : choix++;
                 break;
             default:
